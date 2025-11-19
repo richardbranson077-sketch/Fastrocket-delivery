@@ -36,7 +36,7 @@ export default function RotatingText() {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((current) => (current + 1) % words.length);
-        }, 3000); // 3 seconds per word
+        }, 5000); // 5 seconds per word - slower for readability
 
         return () => clearInterval(interval);
     }, []);

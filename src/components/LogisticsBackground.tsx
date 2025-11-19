@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 export default function LogisticsBackground() {
     return (
         <div className="absolute inset-0 overflow-hidden">
-            {/* Original Gradient Background - Matching hero section exactly */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900" />
+            {/* Solid Dark Blue Background - matching Services page */}
+            <div className="absolute inset-0 bg-[#0f1729]" />
 
-            {/* Animated particles */}
+            {/* Subtle animated particles */}
             {Array.from({ length: 50 }).map((_, i) => (
                 <motion.div
                     key={i}
