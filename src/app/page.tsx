@@ -1,9 +1,11 @@
+```
 'use client';
 
 import { ArrowRight, Package, Clock, Globe, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import RotatingText from '@/components/RotatingText';
 
 import LogisticsBackground from '@/components/LogisticsBackground';
 
@@ -26,28 +28,10 @@ export default function Home() {
             >
               FastRocketDelivery
             </motion.span>
-            <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Delivery at the speed of <br className="hidden sm:block" />
-              <motion.span
-                initial={{ backgroundPosition: "0% 50%" }}
-                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                className="relative bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400 bg-[length:200%_auto] bg-clip-text text-transparent"
-              >
-                light.
-                <motion.span
-                  animate={{
-                    opacity: [0, 1, 0],
-                    scale: [0.8, 1.2, 0.8],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -right-2 -top-2 h-3 w-3 rounded-full bg-orange-400 blur-sm"
-                ></motion.span>
-              </motion.span>
+              <div className="inline-block">
+                <RotatingText />
+              </div>
             </h1>
             <p className="mb-8 max-w-2xl text-lg text-slate-300 md:text-xl">
               Experience the fastest, most reliable delivery service. Track your packages in real-time and enjoy peace of mind with FastRocket.
@@ -66,7 +50,7 @@ export default function Home() {
                 e.preventDefault();
                 const input = e.currentTarget.elements.namedItem('trackingId') as HTMLInputElement;
                 if (input.value) {
-                  window.location.href = `/tracking?id=${input.value}`;
+                  window.location.href = `/ tracking ? id = ${ input.value } `;
                 }
               }}
               className="relative flex items-center"
@@ -263,7 +247,7 @@ export default function Home() {
                 whileHover={{ y: -5 }}
                 className="group rounded-2xl border bg-card p-6 shadow-sm transition-all hover:shadow-lg"
               >
-                <div className={`mb-4 h-2 w-16 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
+                <div className={`mb - 4 h - 2 w - 16 rounded - full bg - gradient - to - r ${ service.gradient } `}></div>
                 <h3 className="mb-2 text-xl font-semibold">{service.title}</h3>
                 <p className="mb-4 text-sm text-muted-foreground">{service.description}</p>
                 <Link href="/services" className="inline-flex items-center text-sm font-medium text-primary hover:underline">
@@ -310,7 +294,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className={`flex flex-col gap-8 lg:flex-row lg:gap-16 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+                  className={`flex flex - col gap - 8 lg: flex - row lg: gap - 16 ${ index % 2 === 1 ? 'lg:flex-row-reverse' : '' } `}
                 >
                   <div className="flex-1">
                     <div className="rounded-2xl border bg-card p-8 shadow-sm">
