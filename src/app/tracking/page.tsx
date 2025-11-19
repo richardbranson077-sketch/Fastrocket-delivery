@@ -68,29 +68,34 @@ function TrackingContent() {
             console.log('Generating canvas...');
             const canvas = await html2canvas(element, {
                 scale: 2,
-                logging: false,
+                logging: true,
                 useCORS: true,
                 backgroundColor: '#ffffff',
-                allowTaint: true
+                foreignObjectRendering: false
             });
 
             console.log('Canvas generated, creating PDF...');
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: 'a4'
-            });
+            try {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
 
-            const imgWidth = 210;
-            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                const imgWidth = 210;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-            pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-            pdf.save(`tracking-${data?.trackingNumber || 'receipt'}.pdf`);
-            console.log('PDF saved successfully');
-        } catch (err) {
+                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                pdf.save(`tracking-${data?.trackingNumber || 'receipt'}.pdf`);
+                console.log('PDF saved successfully');
+            } catch (canvasError) {
+                console.error('Canvas to DataURL error:', canvasError);
+                throw new Error('Security Error: Canvas is tainted. Please try printing instead.');
+            }
+        } catch (err: any) {
             console.error('Error generating PDF:', err);
-            alert('Failed to save receipt. Please try again.');
+            alert(`Failed to save receipt: ${err.message || 'Unknown error'}. Try taking a screenshot.`);
         } finally {
             setIsGeneratingPDF(false);
         }
