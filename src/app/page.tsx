@@ -327,6 +327,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FastRocket Fleet Showcase */}
+      <section className="bg-white py-20">
+        <div className="container max-w-screen-2xl px-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Our FastRocket Fleet</h2>
+            <p className="text-muted-foreground">Global logistics powered by modern transportation</p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                src: "/images/cargo-ship.png",
+                title: "Ocean Freight",
+                description: "International shipping across all major ports"
+              },
+              {
+                src: "/images/cargo-plane.png",
+                title: "Air Cargo",
+                description: "Express delivery via our dedicated fleet"
+              },
+              {
+                src: "/images/freight-truck.png",
+                title: "Ground Transport",
+                description: "Door-to-door delivery nationwide"
+              },
+              {
+                src: "/images/warehouse.png",
+                title: "Warehousing",
+                description: "State-of-the-art storage facilities"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-sm transition-shadow hover:shadow-lg">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover p-4"
+                  />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="bg-muted/30 py-20">
         <div className="container max-w-screen-2xl px-4">
