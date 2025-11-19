@@ -53,16 +53,26 @@ function TrackingContent() {
     };
 
     const handleDownloadPDF = async () => {
+        console.log('Starting PDF generation...');
         const element = document.getElementById('tracking-result');
-        if (!element) return;
+        if (!element) {
+            console.error('Tracking result element not found');
+            alert('Could not find tracking details to save. Please try again.');
+            return;
+        }
 
         try {
+            console.log('Generating canvas...');
             const canvas = await html2canvas(element, {
                 scale: 2,
-                logging: false,
+                logging: true,
                 useCORS: true,
-                backgroundColor: '#ffffff'
+                backgroundColor: '#ffffff',
+                allowTaint: true,
+                foreignObjectRendering: false
             });
+
+            console.log('Canvas generated, creating PDF...');
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF({
                 orientation: 'portrait',
@@ -74,9 +84,11 @@ function TrackingContent() {
             const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
             pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-            pdf.save(`tracking-${data?.trackingNumber}.pdf`);
+            pdf.save(`tracking-${data?.trackingNumber || 'receipt'}.pdf`);
+            console.log('PDF saved successfully');
         } catch (err) {
             console.error('Error generating PDF:', err);
+            alert('Failed to save receipt. Please try again or take a screenshot.');
         }
     };
 
