@@ -5,8 +5,7 @@ export const dynamic = 'force-dynamic';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getTrackingData, ShipmentData } from '@/lib/tracking';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import { getTrackingData, ShipmentData } from '@/lib/tracking';
 import { Search, Package, Truck, CheckCircle, MapPin, Clock, AlertCircle, HelpCircle, ChevronDown, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -52,24 +51,27 @@ function TrackingContent() {
         handleSearch(query);
     };
 
-    const handleDownloadPDF = async () => {
-        console.log('Starting PDF generation...');
-        const element = document.getElementById('tracking-result');
-        if (!element) {
-            console.error('Tracking result element not found');
-            alert('Could not find tracking details to save. Please try again.');
-            return;
-        }
+    const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
 
+    const handleDownloadPDF = async () => {
+        setIsGeneratingPDF(true);
         try {
+            const element = document.getElementById('tracking-result');
+            if (!element) {
+                throw new Error('Tracking result element not found');
+            }
+
+            // Dynamically import libraries to ensure they load correctly on the client
+            const html2canvas = (await import('html2canvas')).default;
+            const { jsPDF } = await import('jspdf');
+
             console.log('Generating canvas...');
             const canvas = await html2canvas(element, {
                 scale: 2,
-                logging: true,
+                logging: false,
                 useCORS: true,
                 backgroundColor: '#ffffff',
-                allowTaint: true,
-                foreignObjectRendering: false
+                allowTaint: true
             });
 
             console.log('Canvas generated, creating PDF...');
@@ -88,7 +90,9 @@ function TrackingContent() {
             console.log('PDF saved successfully');
         } catch (err) {
             console.error('Error generating PDF:', err);
-            alert('Failed to save receipt. Please try again or take a screenshot.');
+            alert('Failed to save receipt. Please try again.');
+        } finally {
+            setIsGeneratingPDF(false);
         }
     };
 
@@ -178,10 +182,20 @@ function TrackingContent() {
                         <div className="flex justify-end">
                             <button
                                 onClick={handleDownloadPDF}
-                                className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-200 transition-all hover:bg-slate-50 hover:shadow-md"
+                                disabled={isGeneratingPDF}
+                                className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-200 transition-all hover:bg-slate-50 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                <Download className="h-4 w-4" />
-                                Save Receipt
+                                {isGeneratingPDF ? (
+                                    <>
+                                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate-400 border-t-transparent"></div>
+                                        Saving...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Download className="h-4 w-4" />
+                                        Save Receipt
+                                    </>
+                                )}
                             </button>
                         </div>
 
