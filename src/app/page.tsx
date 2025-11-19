@@ -5,12 +5,14 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import RotatingText from '@/components/RotatingText';
+import { useRouter } from 'next/navigation';
 
 import LogisticsBackground from '@/components/LogisticsBackground';
 
 export default function Home() {
+  const router = useRouter();
   return (
-    <div className="flex flex-col">
+    <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 text-white md:py-32">
         <LogisticsBackground />
@@ -58,7 +60,7 @@ export default function Home() {
                 e.preventDefault();
                 const input = e.currentTarget.elements.namedItem('trackingId') as HTMLInputElement;
                 if (input.value) {
-                  window.location.href = `/ tracking ? id = ${input.value} `;
+                  router.push(`/tracking?id=${input.value}`);
                 }
               }}
               className="relative flex items-center"
