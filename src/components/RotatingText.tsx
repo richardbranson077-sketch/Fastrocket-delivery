@@ -5,25 +5,25 @@ import { useEffect, useState } from 'react';
 
 const words = [
     {
-        text: 'lightning fast.',
+        text: 'doorstep in 24hrs.',
         color: 'from-orange-400 via-orange-500 to-orange-600',
         glow: 'shadow-orange-500/50',
         particles: 'bg-orange-400'
     },
     {
-        text: 'ultra secure.',
+        text: 'tracked every mile.',
         color: 'from-blue-400 via-blue-500 to-blue-600',
         glow: 'shadow-blue-500/50',
         particles: 'bg-blue-400'
     },
     {
-        text: '100% reliable.',
+        text: 'insured & protected.',
         color: 'from-green-400 via-green-500 to-green-600',
         glow: 'shadow-green-500/50',
         particles: 'bg-green-400'
     },
     {
-        text: 'truly global.',
+        text: '200+ countries served.',
         color: 'from-purple-400 via-purple-500 to-purple-600',
         glow: 'shadow-purple-500/50',
         particles: 'bg-purple-400'
@@ -36,7 +36,7 @@ export default function RotatingText() {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((current) => (current + 1) % words.length);
-        }, 2500);
+        }, 3000); // 3 seconds per word
 
         return () => clearInterval(interval);
     }, []);
@@ -65,7 +65,7 @@ export default function RotatingText() {
                         duration: 1.5,
                         delay: i * 0.15,
                         repeat: Infinity,
-                        repeatDelay: 1,
+                        repeatDelay: 1.5,
                     }}
                     className={`absolute left-1/2 top-1/2 h-2 w-2 rounded-full ${currentWord.particles} blur-sm`}
                 />
