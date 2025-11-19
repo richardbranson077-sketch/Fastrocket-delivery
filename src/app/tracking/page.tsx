@@ -95,7 +95,10 @@ function TrackingContent() {
             }
         } catch (err: any) {
             console.error('Error generating PDF:', err);
-            alert(`Failed to save receipt: ${err.message || 'Unknown error'}. Try taking a screenshot.`);
+            const shouldPrint = confirm(`Failed to generate PDF automatically: ${err.message || 'Unknown error'}.\n\nWould you like to open the print dialog instead?`);
+            if (shouldPrint) {
+                window.print();
+            }
         } finally {
             setIsGeneratingPDF(false);
         }
