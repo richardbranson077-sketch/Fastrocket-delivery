@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Package, Clock, Globe, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Package, Clock, Globe, ShieldCheck, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -21,12 +21,15 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <motion.span
+            <motion.div
               whileHover={{ scale: 1.05 }}
-              className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-1.5 text-sm font-medium text-primary-foreground backdrop-blur-sm ring-1 ring-primary/30"
+              className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1.5 backdrop-blur-sm ring-1 ring-primary/30"
             >
-              FastRocketDelivery
-            </motion.span>
+              <div className="relative flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <Rocket className="h-4 w-4" />
+              </div>
+              <span className="text-sm font-bold tracking-tight text-primary-foreground">FastRocket</span>
+            </motion.div>
             <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Delivery at the speed of <br className="hidden sm:block" />
               <motion.span
