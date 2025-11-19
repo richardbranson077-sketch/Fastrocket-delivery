@@ -5,21 +5,10 @@ import { motion } from 'framer-motion';
 export default function LogisticsBackground() {
     return (
         <div className="absolute inset-0 overflow-hidden">
-            {/* Gradient Background - Original Style */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600" />
+            {/* Original Gradient Background - Matching hero section exactly */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900" />
 
-            {/* Animated Grid Pattern */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0" style={{
-                    backgroundImage: `
-                        linear-gradient(to right, white 1px, transparent 1px),
-                        linear-gradient(to bottom, white 1px, transparent 1px)
-                    `,
-                    backgroundSize: '50px 50px'
-                }} />
-            </div>
-
-            {/* Animated Particles/Dots */}
+            {/* Animated particles */}
             {Array.from({ length: 50 }).map((_, i) => (
                 <motion.div
                     key={i}
@@ -39,9 +28,6 @@ export default function LogisticsBackground() {
                     }}
                 />
             ))}
-
-            {/* Overlay gradient for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-900/30" />
         </div>
     );
 }

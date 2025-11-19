@@ -327,35 +327,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FastRocket Fleet Showcase */}
+      {/* Why Choose FastRocket Delivery */}
       <section className="bg-white py-20">
         <div className="container max-w-screen-2xl px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Our FastRocket Fleet</h2>
-            <p className="text-muted-foreground">Global logistics powered by modern transportation</p>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Why Deliver With Us</h2>
+            <p className="text-muted-foreground">Experience the FastRocket difference in every shipment</p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 src: "/images/cargo-ship.png",
-                title: "Ocean Freight",
-                description: "International shipping across all major ports"
+                title: "Never Lost,\nAlways Found",
+                description: "Real-time GPS tracking on every package, every mile of the journey"
               },
               {
                 src: "/images/cargo-plane.png",
-                title: "Air Cargo",
-                description: "Express delivery via our dedicated fleet"
+                title: "Speed That\nDefies Gravity",
+                description: "Same-day delivery available - your urgent packages arrive before you know it"
               },
               {
                 src: "/images/freight-truck.png",
-                title: "Ground Transport",
-                description: "Door-to-door delivery nationwide"
+                title: "Handled With\nWhite Gloves",
+                description: "Every item treated as precious cargo, insured and protected throughout"
               },
               {
                 src: "/images/warehouse.png",
-                title: "Warehousing",
-                description: "State-of-the-art storage facilities"
+                title: "Smart Storage,\nFast Retrieval",
+                description: "AI-powered warehousing ensures your shipment is always ready to move"
               }
             ].map((item, index) => (
               <motion.div
@@ -374,7 +374,7 @@ export default function Home() {
                     className="object-cover p-4"
                   />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
+                <h3 className="mb-2 text-xl font-semibold whitespace-pre-line">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </motion.div>
             ))}
