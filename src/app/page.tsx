@@ -1,4 +1,3 @@
-```javascript
 'use client';
 
 import { ArrowRight, Package, Clock, Globe, ShieldCheck } from 'lucide-react';
@@ -56,7 +55,7 @@ export default function Home() {
                 e.preventDefault();
                 const input = e.currentTarget.elements.namedItem('trackingId') as HTMLInputElement;
                 if (input.value) {
-                  window.location.href = `/ tracking ? id = ${ input.value } `;
+                  window.location.href = `/ tracking ? id = ${input.value} `;
                 }
               }}
               className="relative flex items-center"
@@ -253,7 +252,7 @@ export default function Home() {
                 whileHover={{ y: -5 }}
                 className="group rounded-2xl border bg-card p-6 shadow-sm transition-all hover:shadow-lg"
               >
-                <div className={`mb - 4 h - 2 w - 16 rounded - full bg - gradient - to - r ${ service.gradient } `}></div>
+                <div className={`mb - 4 h - 2 w - 16 rounded - full bg - gradient - to - r ${service.gradient} `}></div>
                 <h3 className="mb-2 text-xl font-semibold">{service.title}</h3>
                 <p className="mb-4 text-sm text-muted-foreground">{service.description}</p>
                 <Link href="/services" className="inline-flex items-center text-sm font-medium text-primary hover:underline">
@@ -300,7 +299,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className={`flex flex - col gap - 8 lg: flex - row lg: gap - 16 ${ index % 2 === 1 ? 'lg:flex-row-reverse' : '' } `}
+                  className={`flex flex - col gap - 8 lg: flex - row lg: gap - 16 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} `}
                 >
                   <div className="flex-1">
                     <div className="rounded-2xl border bg-card p-8 shadow-sm">
