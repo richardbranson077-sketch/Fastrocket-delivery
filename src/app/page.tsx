@@ -152,15 +152,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose FastRocket Delivery */}
+      {/* Future of Delivery */}
       <section className="bg-white py-20">
         <div className="container max-w-screen-2xl px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Why Deliver With Us</h2>
-            <p className="text-muted-foreground">Experience the FastRocket difference in every shipment</p>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">The Future of Delivery</h2>
+            <p className="text-muted-foreground">Experience the next generation of logistics with FastRocket</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               {
                 src: "/images/delivery-drone.png",
@@ -176,21 +176,6 @@ export default function Home() {
                 src: "/images/cargo-plane.png",
                 title: "Speed That\nDefies Gravity",
                 description: "Same-day delivery available - your urgent packages arrive before you know it"
-              },
-              {
-                src: "/images/cargo-ship.png",
-                title: "Never Lost,\nAlways Found",
-                description: "Real-time GPS tracking on every package, every mile of the journey"
-              },
-              {
-                src: "/images/freight-truck.png",
-                title: "Handled With\nWhite Gloves",
-                description: "Every item treated as precious cargo, insured and protected throughout"
-              },
-              {
-                src: "/images/warehouse.png",
-                title: "Smart Storage,\nFast Retrieval",
-                description: "AI-powered warehousing ensures your shipment is always ready to move"
               }
             ].map((item, index) => (
               <motion.div
@@ -385,6 +370,56 @@ export default function Home() {
       </section>
 
 
+
+      {/* Why Choose FastRocket Delivery */}
+      <section className="bg-white py-20">
+        <div className="container max-w-screen-2xl px-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Why Deliver With Us</h2>
+            <p className="text-muted-foreground">Experience the FastRocket difference in every shipment</p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {[
+              {
+                src: "/images/cargo-ship.png",
+                title: "Never Lost,\nAlways Found",
+                description: "Real-time GPS tracking on every package, every mile of the journey"
+              },
+              {
+                src: "/images/freight-truck.png",
+                title: "Handled With\nWhite Gloves",
+                description: "Every item treated as precious cargo, insured and protected throughout"
+              },
+              {
+                src: "/images/warehouse.png",
+                title: "Smart Storage,\nFast Retrieval",
+                description: "AI-powered warehousing ensures your shipment is always ready to move"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-sm transition-shadow hover:shadow-lg">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover p-4"
+                  />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold whitespace-pre-line">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <section className="bg-muted/30 py-20">
