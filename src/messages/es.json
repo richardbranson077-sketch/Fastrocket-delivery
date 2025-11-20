@@ -2,14 +2,14 @@
     "Navigation": {
         "trackPackage": "Rastrear Paquete",
         "services": "Servicios",
-        "about": "Nosotros",
+        "about": "Sobre Nosotros",
         "contact": "Contacto",
-        "adminLogin": "Acceso Admin"
+        "adminLogin": "Inicio de Sesión Admin"
     },
     "Hero": {
         "badge": "FastRocket",
         "titlePrefix": "Entrega a la velocidad de",
-        "subtitle": "Experimente el servicio de entrega más rápido y confiable. Rastree sus paquetes en tiempo real y disfrute de tranquilidad con FastRocket.",
+        "subtitle": "Experimente el servicio de entrega más rápido y confiable. Rastree sus paquetes en tiempo real y disfrute de la tranquilidad con FastRocket.",
         "trackPlaceholder": "Ingrese su número de rastreo...",
         "trackButton": "Rastrear Ahora",
         "example": "ej., FR-123456789",
@@ -20,11 +20,11 @@
         }
     },
     "Features": {
-        "title": "¿Por qué elegir FastRocket?",
+        "title": "¿Por Qué Elegir FastRocket?",
         "subtitle": "Entregamos más que paquetes; entregamos promesas.",
         "fast": {
             "title": "Ultrarrápido",
-            "description": "Opciones de entrega el mismo día disponibles para ciudades principales. Valoramos su tiempo."
+            "description": "Opciones de entrega el mismo día disponibles para las principales ciudades. Valoramos su tiempo."
         },
         "global": {
             "title": "Alcance Global",
@@ -32,38 +32,38 @@
         },
         "secure": {
             "title": "Manejo Seguro",
-            "description": "Sus paquetes son manejados con el máximo cuidado y asegurados contra daños."
+            "description": "Sus paquetes se manejan con el máximo cuidado y están asegurados contra daños."
         }
     },
     "Future": {
         "title": "El Futuro de la Entrega",
         "subtitle": "Experimente la próxima generación de logística con FastRocket",
         "drone": {
-            "title": "Entrega con Drones\nLista para el Futuro",
+            "title": "Entrega con Drones\nDel Futuro",
             "description": "Pioneros en entrega aérea autónoma para logística urbana instantánea"
         },
         "electric": {
             "title": "Flota Eléctrica\nEcológica",
-            "description": "Entrega de última milla cero emisiones protegiendo nuestro planeta"
+            "description": "Entrega de última milla sin emisiones protegiendo nuestro planeta"
         },
         "plane": {
-            "title": "Velocidad que\nDesafía la Gravedad",
-            "description": "Entrega el mismo día disponible - sus paquetes urgentes llegan antes de que se dé cuenta"
+            "title": "Velocidad Que\nDesafía la Gravedad",
+            "description": "Entrega el mismo día disponible - sus paquetes urgentes llegan antes de que lo sepa"
         }
     },
     "Tracking": {
-        "title": "Rastree su Envío",
-        "subtitle": "Ingrese su número de rastreo para obtener actualizaciones en tiempo real sobre su paquete.",
+        "title": "Rastree Su Envío",
+        "subtitle": "Ingrese su número de rastreo para obtener actualizaciones en tiempo real de su paquete.",
         "searchPlaceholder": "Ingrese número de rastreo (ej., FR-123456789)",
         "trackButton": "Rastrear",
         "tracking": "Rastreando...",
         "saveReceipt": "Guardar Recibo",
         "saving": "Guardando...",
-        "notFound": "Número de rastreo no encontrado. Por favor verifique e intente de nuevo.",
+        "notFound": "Número de rastreo no encontrado. Por favor verifique e intente nuevamente.",
         "error": "Ocurrió un error al obtener los datos de rastreo.",
         "status": {
             "delivered": "Entregado",
-            "outForDelivery": "En Reparto",
+            "outForDelivery": "En Ruta de Entrega",
             "inTransit": "En Tránsito"
         },
         "labels": {
@@ -84,8 +84,57 @@
             "ordered": "Ordenado",
             "processing": "Procesando",
             "shipped": "Enviado",
-            "outForDelivery": "En Reparto",
+            "outForDelivery": "En Ruta de Entrega",
             "delivered": "Entregado"
         }
+    },
+    "Footer": {
+        "tagline": "Soluciones de entrega premium para el mundo moderno. Envíos rápidos, confiables y seguros en todo el mundo.",
+        "services": {
+            "title": "Servicios",
+            "express": "Entrega Express",
+            "international": "Envío Internacional",
+            "freight": "Servicios de Carga",
+            "business": "Soluciones Empresariales"
+        },
+        "company": {
+            "title": "Empresa",
+            "about": "Sobre Nosotros",
+            "contact": "Contacto",
+            "faq": "Preguntas Frecuentes"
+        },
+        "legal": {
+            "title": "Legal",
+            "privacy": "Política de Privacidad",
+            "terms": "Términos de Servicio",
+            "cookies": "Política de Cookies",
+            "shipping": "Política de Envío",
+            "refunds": "Política de Reembolsos"
+        },
+        "connect": {
+            "title": "Conectar",
+            "language": "Idioma"
+        },
+        "copyright": "Todos los derechos reservados."
+    },
+    "Common": {
+        "loading": "Cargando...",
+        "error": "Error",
+        "success": "Éxito",
+        "submit": "Enviar",
+        "cancel": "Cancelar",
+        "close": "Cerrar",
+        "save": "Guardar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "back": "Atrás",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "search": "Buscar",
+        "filter": "Filtrar",
+        "sort": "Ordenar",
+        "clear": "Limpiar",
+        "apply": "Aplicar",
+        "reset": "Restablecer"
     }
 }

@@ -1,9 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import { Rocket, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { TeamGallery } from '@/components/TeamGallery';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useTranslations } from 'use-intl';
 
 export function Footer() {
+    const t = useTranslations('Footer');
+    const currentYear = new Date().getFullYear();
+
     return (
         <footer className="border-t bg-muted/40">
             <TeamGallery />
@@ -17,42 +23,42 @@ export function Footer() {
                             <span className="text-lg font-bold tracking-tight">FastRocket</span>
                         </Link>
                         <p className="text-sm text-muted-foreground">
-                            Premium delivery solutions for the modern world. Fast, reliable, and secure shipping worldwide.
+                            {t('tagline')}
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="mb-4 text-sm font-semibold">Services</h3>
+                        <h3 className="mb-4 text-sm font-semibold">{t('services.title')}</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><Link href="/services" className="hover:text-primary">Express Delivery</Link></li>
-                            <li><Link href="/services" className="hover:text-primary">International Shipping</Link></li>
-                            <li><Link href="/services" className="hover:text-primary">Freight Services</Link></li>
-                            <li><Link href="/services" className="hover:text-primary">Business Solutions</Link></li>
+                            <li><Link href="/services" className="hover:text-primary">{t('services.express')}</Link></li>
+                            <li><Link href="/services" className="hover:text-primary">{t('services.international')}</Link></li>
+                            <li><Link href="/services" className="hover:text-primary">{t('services.freight')}</Link></li>
+                            <li><Link href="/services" className="hover:text-primary">{t('services.business')}</Link></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="mb-4 text-sm font-semibold">Company</h3>
+                        <h3 className="mb-4 text-sm font-semibold">{t('company.title')}</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><Link href="/about" className="hover:text-primary">About Us</Link></li>
-                            <li><Link href="/contact" className="hover:text-primary">Contact</Link></li>
-                            <li><Link href="/faq" className="hover:text-primary">FAQ</Link></li>
+                            <li><Link href="/about" className="hover:text-primary">{t('company.about')}</Link></li>
+                            <li><Link href="/contact" className="hover:text-primary">{t('company.contact')}</Link></li>
+                            <li><Link href="/faq" className="hover:text-primary">{t('company.faq')}</Link></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="mb-4 text-sm font-semibold">Legal</h3>
+                        <h3 className="mb-4 text-sm font-semibold">{t('legal.title')}</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><Link href="/privacy" className="hover:text-primary">Privacy Policy</Link></li>
-                            <li><Link href="/terms" className="hover:text-primary">Terms of Service</Link></li>
-                            <li><Link href="/cookies" className="hover:text-primary">Cookie Policy</Link></li>
-                            <li><Link href="/shipping" className="hover:text-primary">Shipping Policy</Link></li>
-                            <li><Link href="/refunds" className="hover:text-primary">Refund Policy</Link></li>
+                            <li><Link href="/privacy" className="hover:text-primary">{t('legal.privacy')}</Link></li>
+                            <li><Link href="/terms" className="hover:text-primary">{t('legal.terms')}</Link></li>
+                            <li><Link href="/cookies" className="hover:text-primary">{t('legal.cookies')}</Link></li>
+                            <li><Link href="/shipping" className="hover:text-primary">{t('legal.shipping')}</Link></li>
+                            <li><Link href="/refunds" className="hover:text-primary">{t('legal.refunds')}</Link></li>
                         </ul>
                     </div>
 
                     <div className="md:col-span-2 lg:col-span-1">
-                        <h3 className="mb-4 text-sm font-semibold">Connect</h3>
+                        <h3 className="mb-4 text-sm font-semibold">{t('connect.title')}</h3>
                         <div className="flex space-x-4 mb-6">
                             <Link href="#" className="text-muted-foreground hover:text-primary">
                                 <Facebook className="h-5 w-5" />
@@ -72,14 +78,14 @@ export function Footer() {
                             </Link>
                         </div>
                         <div>
-                            <h3 className="mb-4 text-sm font-semibold">Language</h3>
+                            <h3 className="mb-4 text-sm font-semibold">{t('connect.language')}</h3>
                             <LanguageSwitcher />
                         </div>
                     </div>
                 </div>
 
                 <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} FastRocketDelivery. All rights reserved.</p>
+                    <p>&copy; {currentYear} FastRocketDelivery. {t('copyright')}</p>
                 </div>
             </div>
         </footer>

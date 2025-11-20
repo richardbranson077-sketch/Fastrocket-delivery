@@ -1,6 +1,6 @@
 {
     "Navigation": {
-        "trackPackage": "Suivre Colis",
+        "trackPackage": "Suivre le Colis",
         "services": "Services",
         "about": "À Propos",
         "contact": "Contact",
@@ -11,19 +11,19 @@
         "titlePrefix": "Livraison à la vitesse de",
         "subtitle": "Découvrez le service de livraison le plus rapide et le plus fiable. Suivez vos colis en temps réel et profitez de la tranquillité d'esprit avec FastRocket.",
         "trackPlaceholder": "Entrez votre numéro de suivi...",
-        "trackButton": "Suivre",
+        "trackButton": "Suivre Maintenant",
         "example": "ex., FR-123456789",
         "stats": {
             "deliveries": "10M+ Livraisons",
             "countries": "200+ Pays",
-            "onTime": "99.9% À l'heure"
+            "onTime": "99.9% À l'Heure"
         }
     },
     "Features": {
-        "title": "Pourquoi choisir FastRocket ?",
-        "subtitle": "Nous livrons plus que des colis ; nous livrons des promesses.",
+        "title": "Pourquoi Choisir FastRocket?",
+        "subtitle": "Nous livrons plus que des colis; nous livrons des promesses.",
         "fast": {
-            "title": "Éclair Rapide",
+            "title": "Ultra Rapide",
             "description": "Options de livraison le jour même disponibles pour les grandes villes. Nous valorisons votre temps."
         },
         "global": {
@@ -32,14 +32,14 @@
         },
         "secure": {
             "title": "Manipulation Sécurisée",
-            "description": "Vos colis sont traités avec le plus grand soin et assurés contre les dommages."
+            "description": "Vos colis sont manipulés avec le plus grand soin et assurés contre les dommages."
         }
     },
     "Future": {
         "title": "L'Avenir de la Livraison",
         "subtitle": "Découvrez la prochaine génération de logistique avec FastRocket",
         "drone": {
-            "title": "Livraison par Drone\nPrête pour l'Avenir",
+            "title": "Livraison par Drone\nDu Futur",
             "description": "Pionnier de la livraison aérienne autonome pour une logistique urbaine instantanée"
         },
         "electric": {
@@ -47,7 +47,7 @@
             "description": "Livraison du dernier kilomètre zéro émission protégeant notre planète"
         },
         "plane": {
-            "title": "Vitesse qui\nDéfie la Gravité",
+            "title": "Vitesse Qui\nDéfie la Gravité",
             "description": "Livraison le jour même disponible - vos colis urgents arrivent avant que vous ne le sachiez"
         }
     },
@@ -56,14 +56,14 @@
         "subtitle": "Entrez votre numéro de suivi pour obtenir des mises à jour en temps réel sur votre colis.",
         "searchPlaceholder": "Entrez le numéro de suivi (ex., FR-123456789)",
         "trackButton": "Suivre",
-        "tracking": "Suivi...",
+        "tracking": "Suivi en cours...",
         "saveReceipt": "Enregistrer le Reçu",
         "saving": "Enregistrement...",
         "notFound": "Numéro de suivi introuvable. Veuillez vérifier et réessayer.",
         "error": "Une erreur s'est produite lors de la récupération des données de suivi.",
         "status": {
             "delivered": "Livré",
-            "outForDelivery": "En Livraison",
+            "outForDelivery": "En Cours de Livraison",
             "inTransit": "En Transit"
         },
         "labels": {
@@ -82,10 +82,59 @@
         },
         "steps": {
             "ordered": "Commandé",
-            "processing": "Traitement",
+            "processing": "En Traitement",
             "shipped": "Expédié",
-            "outForDelivery": "En Livraison",
+            "outForDelivery": "En Cours de Livraison",
             "delivered": "Livré"
         }
+    },
+    "Footer": {
+        "tagline": "Solutions de livraison premium pour le monde moderne. Expédition rapide, fiable et sécurisée dans le monde entier.",
+        "services": {
+            "title": "Services",
+            "express": "Livraison Express",
+            "international": "Expédition Internationale",
+            "freight": "Services de Fret",
+            "business": "Solutions d'Entreprise"
+        },
+        "company": {
+            "title": "Entreprise",
+            "about": "À Propos",
+            "contact": "Contact",
+            "faq": "FAQ"
+        },
+        "legal": {
+            "title": "Légal",
+            "privacy": "Politique de Confidentialité",
+            "terms": "Conditions d'Utilisation",
+            "cookies": "Politique des Cookies",
+            "shipping": "Politique d'Expédition",
+            "refunds": "Politique de Remboursement"
+        },
+        "connect": {
+            "title": "Connecter",
+            "language": "Langue"
+        },
+        "copyright": "Tous droits réservés."
+    },
+    "Common": {
+        "loading": "Chargement...",
+        "error": "Erreur",
+        "success": "Succès",
+        "submit": "Soumettre",
+        "cancel": "Annuler",
+        "close": "Fermer",
+        "save": "Enregistrer",
+        "delete": "Supprimer",
+        "edit": "Modifier",
+        "back": "Retour",
+        "next": "Suivant",
+        "previous": "Précédent",
+        "search": "Rechercher",
+        "filter": "Filtrer",
+        "sort": "Trier",
+        "clear": "Effacer",
+        "apply": "Appliquer",
+        "reset": "Réinitialiser"
     }
 }

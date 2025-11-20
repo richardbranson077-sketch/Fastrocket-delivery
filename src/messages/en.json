@@ -87,5 +87,54 @@
             "outForDelivery": "Out for Delivery",
             "delivered": "Delivered"
         }
+    },
+    "Footer": {
+        "tagline": "Premium delivery solutions for the modern world. Fast, reliable, and secure shipping worldwide.",
+        "services": {
+            "title": "Services",
+            "express": "Express Delivery",
+            "international": "International Shipping",
+            "freight": "Freight Services",
+            "business": "Business Solutions"
+        },
+        "company": {
+            "title": "Company",
+            "about": "About Us",
+            "contact": "Contact",
+            "faq": "FAQ"
+        },
+        "legal": {
+            "title": "Legal",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "cookies": "Cookie Policy",
+            "shipping": "Shipping Policy",
+            "refunds": "Refund Policy"
+        },
+        "connect": {
+            "title": "Connect",
+            "language": "Language"
+        },
+        "copyright": "All rights reserved."
+    },
+    "Common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "close": "Close",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "search": "Search",
+        "filter": "Filter",
+        "sort": "Sort",
+        "clear": "Clear",
+        "apply": "Apply",
+        "reset": "Reset"
     }
 }

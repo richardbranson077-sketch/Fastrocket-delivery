@@ -1,6 +1,6 @@
 {
     "Navigation": {
-        "trackPackage": "荷物の追跡",
+        "trackPackage": "荷物を追跡",
         "services": "サービス",
         "about": "会社概要",
         "contact": "お問い合わせ",
@@ -8,76 +8,76 @@
     },
     "Hero": {
         "badge": "FastRocket",
-        "titlePrefix": "驚異的なスピードで配達",
-        "subtitle": "最速かつ最も信頼性の高い配送サービスを体験してください。リアルタイムで荷物を追跡できます。",
-        "trackPlaceholder": "追跡番号を入力...",
+        "titlePrefix": "光速配送",
+        "subtitle": "最速で最も信頼性の高い配送サービスをご体験ください。リアルタイムで荷物を追跡し、FastRocketで安心をお楽しみください。",
+        "trackPlaceholder": "追跡番号を入力してください...",
         "trackButton": "今すぐ追跡",
-        "example": "例: FR-123456789",
+        "example": "例：FR-123456789",
         "stats": {
-            "deliveries": "1000万+ 配達",
+            "deliveries": "1000万+ 配送",
             "countries": "200+ 国",
-            "onTime": "99.9% 定時"
+            "onTime": "99.9% 時間厳守"
         }
     },
     "Features": {
         "title": "FastRocketを選ぶ理由",
-        "subtitle": "私たちは荷物だけでなく、約束も届けます。",
+        "subtitle": "私たちは荷物以上のものを配送します。約束を配送します。",
         "fast": {
-            "title": "電光石火の速さ",
-            "description": "主要都市では当日配送が可能です。"
+            "title": "超高速",
+            "description": "主要都市で当日配送オプションをご利用いただけます。お客様の時間を大切にします。"
         },
         "global": {
-            "title": "グローバルな展開",
-            "description": "世界200カ国以上に発送します。"
+            "title": "グローバルリーチ",
+            "description": "世界200カ国以上への配送とリアルタイム追跡更新。"
         },
         "secure": {
             "title": "安全な取り扱い",
-            "description": "お客様の荷物は細心の注意を払って取り扱われます。"
+            "description": "お客様の荷物は最大限の注意を払って取り扱われ、損害に対して保険がかけられています。"
         }
     },
     "Future": {
         "title": "配送の未来",
-        "subtitle": "次世代の物流を体験してください",
+        "subtitle": "FastRocketで次世代の物流を体験してください",
         "drone": {
-            "title": "未来対応\nドローン配送",
-            "description": "先駆的な自律型空中配送"
+            "title": "未来志向の\nドローン配送",
+            "description": "即時都市物流のための自律空中配送のパイオニア"
         },
         "electric": {
             "title": "環境に優しい\n電気自動車",
-            "description": "ゼロエミッションのラストワンマイル配送"
+            "description": "地球を守るゼロエミッションラストマイル配送"
         },
         "plane": {
             "title": "重力に逆らう\nスピード",
-            "description": "当日配送が利用可能です"
+            "description": "当日配送可能 - お急ぎの荷物は気づく前に到着します"
         }
     },
     "Tracking": {
-        "title": "荷物の追跡",
-        "subtitle": "追跡番号を入力して、リアルタイムの更新情報を取得してください。",
-        "searchPlaceholder": "追跡番号を入力 (例: FR-123456789)",
+        "title": "荷物を追跡",
+        "subtitle": "追跡番号を入力して、荷物のリアルタイム更新を取得してください。",
+        "searchPlaceholder": "追跡番号を入力（例：FR-123456789）",
         "trackButton": "追跡",
         "tracking": "追跡中...",
         "saveReceipt": "領収書を保存",
         "saving": "保存中...",
-        "notFound": "追跡番号が見つかりません。",
-        "error": "エラーが発生しました。",
+        "notFound": "追跡番号が見つかりません。確認して再試行してください。",
+        "error": "追跡データの取得中にエラーが発生しました。",
         "status": {
-            "delivered": "配達完了",
+            "delivered": "配達済み",
             "outForDelivery": "配達中",
             "inTransit": "輸送中"
         },
         "labels": {
             "trackingNumber": "追跡番号",
-            "estimatedDelivery": "配達予定日",
+            "estimatedDelivery": "配達予定",
             "serviceType": "サービスタイプ",
             "weight": "重量",
             "description": "説明",
-            "sender": "差出人",
-            "receiver": "受取人",
+            "sender": "送信者",
+            "receiver": "受信者",
             "name": "名前",
             "address": "住所",
-            "phone": "電話番号",
-            "history": "履歴",
+            "phone": "電話",
+            "history": "追跡履歴",
             "packageDetails": "荷物の詳細"
         },
         "steps": {
@@ -85,7 +85,56 @@
             "processing": "処理中",
             "shipped": "発送済み",
             "outForDelivery": "配達中",
-            "delivered": "配達完了"
+            "delivered": "配達済み"
         }
+    },
+    "Footer": {
+        "tagline": "現代世界のためのプレミアム配送ソリューション。世界中への迅速、信頼性、安全な配送。",
+        "services": {
+            "title": "サービス",
+            "express": "速達配送",
+            "international": "国際配送",
+            "freight": "貨物サービス",
+            "business": "ビジネスソリューション"
+        },
+        "company": {
+            "title": "会社",
+            "about": "会社概要",
+            "contact": "お問い合わせ",
+            "faq": "よくある質問"
+        },
+        "legal": {
+            "title": "法的情報",
+            "privacy": "プライバシーポリシー",
+            "terms": "利用規約",
+            "cookies": "Cookieポリシー",
+            "shipping": "配送ポリシー",
+            "refunds": "返金ポリシー"
+        },
+        "connect": {
+            "title": "接続",
+            "language": "言語"
+        },
+        "copyright": "全著作権所有。"
+    },
+    "Common": {
+        "loading": "読み込み中...",
+        "error": "エラー",
+        "success": "成功",
+        "submit": "送信",
+        "cancel": "キャンセル",
+        "close": "閉じる",
+        "save": "保存",
+        "delete": "削除",
+        "edit": "編集",
+        "back": "戻る",
+        "next": "次へ",
+        "previous": "前へ",
+        "search": "検索",
+        "filter": "フィルター",
+        "sort": "並べ替え",
+        "clear": "クリア",
+        "apply": "適用",
+        "reset": "リセット"
     }
 }

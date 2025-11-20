@@ -1,18 +1,18 @@
 {
     "Navigation": {
-        "trackPackage": "Paket verfolgen",
+        "trackPackage": "Paket Verfolgen",
         "services": "Dienstleistungen",
-        "about": "Über uns",
+        "about": "Über Uns",
         "contact": "Kontakt",
-        "adminLogin": "Admin Login"
+        "adminLogin": "Admin-Anmeldung"
     },
     "Hero": {
         "badge": "FastRocket",
         "titlePrefix": "Lieferung mit der Geschwindigkeit von",
-        "subtitle": "Erleben Sie den schnellsten und zuverlässigsten Lieferservice. Verfolgen Sie Ihre Pakete in Echtzeit.",
-        "trackPlaceholder": "Geben Sie Ihre Tracking-Nummer ein...",
-        "trackButton": "Jetzt verfolgen",
-        "example": "z.B. FR-123456789",
+        "subtitle": "Erleben Sie den schnellsten und zuverlässigsten Lieferservice. Verfolgen Sie Ihre Pakete in Echtzeit und genießen Sie Seelenfrieden mit FastRocket.",
+        "trackPlaceholder": "Geben Sie Ihre Sendungsnummer ein...",
+        "trackButton": "Jetzt Verfolgen",
+        "example": "z.B., FR-123456789",
         "stats": {
             "deliveries": "10M+ Lieferungen",
             "countries": "200+ Länder",
@@ -20,56 +20,56 @@
         }
     },
     "Features": {
-        "title": "Warum FastRocket?",
+        "title": "Warum FastRocket Wählen?",
         "subtitle": "Wir liefern mehr als nur Pakete; wir liefern Versprechen.",
         "fast": {
             "title": "Blitzschnell",
-            "description": "Lieferung am selben Tag für Großstädte verfügbar."
+            "description": "Lieferoptionen am selben Tag für Großstädte verfügbar. Wir schätzen Ihre Zeit."
         },
         "global": {
             "title": "Globale Reichweite",
-            "description": "Versand in über 200 Länder weltweit."
+            "description": "Versand in über 200 Länder weltweit mit Echtzeit-Sendungsverfolgung."
         },
         "secure": {
             "title": "Sichere Handhabung",
-            "description": "Ihre Pakete werden mit größter Sorgfalt behandelt."
+            "description": "Ihre Pakete werden mit größter Sorgfalt behandelt und gegen Schäden versichert."
         }
     },
     "Future": {
         "title": "Die Zukunft der Lieferung",
-        "subtitle": "Erleben Sie die nächste Generation der Logistik",
+        "subtitle": "Erleben Sie die nächste Generation der Logistik mit FastRocket",
         "drone": {
-            "title": "Zukunftsfähige\nDrohnenlieferung",
-            "description": "Pionierarbeit bei der autonomen Luftlieferung"
+            "title": "Zukunftsbereite\nDrohnenlieferung",
+            "description": "Pionier der autonomen Luftlieferung für sofortige urbane Logistik"
         },
         "electric": {
             "title": "Umweltfreundliche\nElektroflotte",
-            "description": "Emissionsfreie Lieferung auf der letzten Meile"
+            "description": "Emissionsfreie Zustellung auf der letzten Meile zum Schutz unseres Planeten"
         },
         "plane": {
-            "title": "Geschwindigkeit, die\nder Schwerkraft trotzt",
-            "description": "Lieferung am selben Tag verfügbar"
+            "title": "Geschwindigkeit Die\nDie Schwerkraft Trotzt",
+            "description": "Lieferung am selben Tag verfügbar - Ihre dringenden Pakete kommen an, bevor Sie es wissen"
         }
     },
     "Tracking": {
         "title": "Verfolgen Sie Ihre Sendung",
-        "subtitle": "Geben Sie Ihre Tracking-Nummer ein, um Echtzeit-Updates zu erhalten.",
-        "searchPlaceholder": "Tracking-Nummer eingeben (z.B. FR-123456789)",
+        "subtitle": "Geben Sie Ihre Sendungsnummer ein, um Echtzeit-Updates zu Ihrem Paket zu erhalten.",
+        "searchPlaceholder": "Sendungsnummer eingeben (z.B., FR-123456789)",
         "trackButton": "Verfolgen",
-        "tracking": "Verfolgung...",
-        "saveReceipt": "Quittung speichern",
-        "saving": "Speichern...",
-        "notFound": "Tracking-Nummer nicht gefunden.",
-        "error": "Ein Fehler ist aufgetreten.",
+        "tracking": "Wird verfolgt...",
+        "saveReceipt": "Beleg Speichern",
+        "saving": "Wird gespeichert...",
+        "notFound": "Sendungsnummer nicht gefunden. Bitte überprüfen und erneut versuchen.",
+        "error": "Beim Abrufen der Sendungsdaten ist ein Fehler aufgetreten.",
         "status": {
-            "delivered": "Geliefert",
-            "outForDelivery": "In Zustellung",
-            "inTransit": "Unterwegs"
+            "delivered": "Zugestellt",
+            "outForDelivery": "Unterwegs zur Zustellung",
+            "inTransit": "In Transit"
         },
         "labels": {
-            "trackingNumber": "Tracking-Nummer",
-            "estimatedDelivery": "Geschätzte Lieferung",
-            "serviceType": "Serviceart",
+            "trackingNumber": "Sendungsnummer",
+            "estimatedDelivery": "Voraussichtliche Lieferung",
+            "serviceType": "Servicetyp",
             "weight": "Gewicht",
             "description": "Beschreibung",
             "sender": "Absender",
@@ -77,15 +77,64 @@
             "name": "Name",
             "address": "Adresse",
             "phone": "Telefon",
-            "history": "Verlauf",
+            "history": "Sendungsverlauf",
             "packageDetails": "Paketdetails"
         },
         "steps": {
             "ordered": "Bestellt",
-            "processing": "Verarbeitung",
+            "processing": "In Bearbeitung",
             "shipped": "Versandt",
-            "outForDelivery": "In Zustellung",
-            "delivered": "Geliefert"
+            "outForDelivery": "Unterwegs zur Zustellung",
+            "delivered": "Zugestellt"
         }
+    },
+    "Footer": {
+        "tagline": "Premium-Lieferlösungen für die moderne Welt. Schneller, zuverlässiger und sicherer Versand weltweit.",
+        "services": {
+            "title": "Dienstleistungen",
+            "express": "Express-Lieferung",
+            "international": "Internationaler Versand",
+            "freight": "Frachtdienste",
+            "business": "Geschäftslösungen"
+        },
+        "company": {
+            "title": "Unternehmen",
+            "about": "Über Uns",
+            "contact": "Kontakt",
+            "faq": "FAQ"
+        },
+        "legal": {
+            "title": "Rechtliches",
+            "privacy": "Datenschutzrichtlinie",
+            "terms": "Nutzungsbedingungen",
+            "cookies": "Cookie-Richtlinie",
+            "shipping": "Versandrichtlinie",
+            "refunds": "Rückerstattungsrichtlinie"
+        },
+        "connect": {
+            "title": "Verbinden",
+            "language": "Sprache"
+        },
+        "copyright": "Alle Rechte vorbehalten."
+    },
+    "Common": {
+        "loading": "Wird geladen...",
+        "error": "Fehler",
+        "success": "Erfolg",
+        "submit": "Absenden",
+        "cancel": "Abbrechen",
+        "close": "Schließen",
+        "save": "Speichern",
+        "delete": "Löschen",
+        "edit": "Bearbeiten",
+        "back": "Zurück",
+        "next": "Weiter",
+        "previous": "Vorherige",
+        "search": "Suchen",
+        "filter": "Filtern",
+        "sort": "Sortieren",
+        "clear": "Löschen",
+        "apply": "Anwenden",
+        "reset": "Zurücksetzen"
     }
 }
