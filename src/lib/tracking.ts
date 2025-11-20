@@ -19,11 +19,13 @@ export interface ShipmentData {
         name: string;
         address: string;
         phone: string;
+        email?: string;
     };
     receiver: {
         name: string;
         address: string;
         phone: string;
+        email?: string;
     };
     packageDetails: {
         weight: string;

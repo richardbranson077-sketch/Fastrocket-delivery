@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/db';
+import { supabaseAdmin } from '@/lib/supabase';
 import { notifyStatusUpdate } from '@/lib/notifications';
 
 export async function POST(request: Request) {
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
         }
 
         // 1. Get current shipment data (for contact info)
-        const { data: shipment, error: fetchError } = await supabase
+        const { data: shipment, error: fetchError } = await supabaseAdmin
             .from('shipments')
             .select('*')
             .eq('tracking_number', trackingNumber)
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
         }
 
         // 2. Update shipment status
-        const { error: updateError } = await supabase
+        const { error: updateError } = await supabaseAdmin
             .from('shipments')
             .update({ status })
             .eq('tracking_number', trackingNumber);
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
         }
 
         // 3. Add shipment event
-        const { error: eventError } = await supabase
+        const { error: eventError } = await supabaseAdmin
             .from('shipment_events')
             .insert({
                 shipment_id: shipment.id,

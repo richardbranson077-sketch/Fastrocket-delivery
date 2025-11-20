@@ -2,13 +2,20 @@ import { Resend } from 'resend';
 import twilio from 'twilio';
 import { ShipmentData } from './tracking';
 
-// Initialize Resend
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization to avoid build-time errors
+function getResendClient() {
+    if (!process.env.RESEND_API_KEY) {
+        return null;
+    }
+    return new Resend(process.env.RESEND_API_KEY);
+}
 
-// Initialize Twilio
-const twilioClient = process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN
-    ? twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
-    : null;
+function getTwilioClient() {
+    if (!process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN) {
+        return null;
+    }
+    return twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+}
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
@@ -16,7 +23,8 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
  * Send an email notification
  */
 export async function sendEmail(to: string, subject: string, html: string) {
-    if (!process.env.RESEND_API_KEY) {
+    const resend = getResendClient();
+    if (!resend) {
         console.warn('RESEND_API_KEY is not set. Email notification skipped.');
         return false;
     }
@@ -40,6 +48,7 @@ export async function sendEmail(to: string, subject: string, html: string) {
  * Send an SMS notification
  */
 export async function sendSMS(to: string, body: string) {
+    const twilioClient = getTwilioClient();
     if (!twilioClient || !process.env.TWILIO_PHONE_NUMBER) {
         console.warn('Twilio credentials are not set. SMS notification skipped.');
         return false;
