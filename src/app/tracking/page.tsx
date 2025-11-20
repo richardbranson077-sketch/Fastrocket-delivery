@@ -56,51 +56,220 @@ function TrackingContent() {
     const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
 
     const handleDownloadPDF = async () => {
+        if (!data) return;
+
         setIsGeneratingPDF(true);
         try {
-            const element = document.getElementById('tracking-result');
-            if (!element) {
-                throw new Error('Tracking result element not found');
-            }
-
-            // Dynamically import libraries to ensure they load correctly on the client
-            const html2canvas = (await import('html2canvas')).default;
+            // Dynamically import jsPDF
             const { jsPDF } = await import('jspdf');
 
-            console.log('Generating canvas...');
-            const canvas = await html2canvas(element, {
-                scale: 2,
-                logging: true,
-                useCORS: true,
-                backgroundColor: '#ffffff',
-                foreignObjectRendering: false
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
             });
 
-            console.log('Canvas generated, creating PDF...');
-            try {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF({
-                    orientation: 'portrait',
-                    unit: 'mm',
-                    format: 'a4'
-                });
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight();
+            let yPos = 20;
 
-                const imgWidth = 210;
-                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            // Header with Logo and Company Name
+            pdf.setFillColor(249, 115, 22); // Orange color
+            pdf.rect(0, 0, pageWidth, 40, 'F');
 
-                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-                pdf.save(`tracking-${data?.trackingNumber || 'receipt'}.pdf`);
-                console.log('PDF saved successfully');
-            } catch (canvasError) {
-                console.error('Canvas to DataURL error:', canvasError);
-                throw new Error('Security Error: Canvas is tainted. Please try printing instead.');
+            // Company Name
+            pdf.setTextColor(255, 255, 255);
+            pdf.setFontSize(28);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text('FastRocket', 20, 25);
+
+            pdf.setFontSize(10);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text('Premium Delivery Solutions', 20, 32);
+
+            // Receipt Title
+            yPos = 55;
+            pdf.setTextColor(0, 0, 0);
+            pdf.setFontSize(20);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text('SHIPMENT RECEIPT', pageWidth / 2, yPos, { align: 'center' });
+
+            // Date
+            yPos += 10;
+            pdf.setFontSize(10);
+            pdf.setFont('helvetica', 'normal');
+            pdf.setTextColor(100, 100, 100);
+            pdf.text(`Generated: ${new Date().toLocaleString()}`, pageWidth / 2, yPos, { align: 'center' });
+
+            // Tracking Number (Highlighted)
+            yPos += 15;
+            pdf.setFillColor(249, 115, 22);
+            pdf.roundedRect(20, yPos - 5, pageWidth - 40, 15, 3, 3, 'F');
+            pdf.setTextColor(255, 255, 255);
+            pdf.setFontSize(14);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text(`Tracking #: ${data.trackingNumber}`, pageWidth / 2, yPos + 5, { align: 'center' });
+
+            // Status Badge
+            yPos += 20;
+            const statusText = data.status === 'delivered' ? t('status.delivered') :
+                data.status === 'out_for_delivery' ? t('status.outForDelivery') :
+                    t('status.inTransit');
+            pdf.setFillColor(34, 197, 94); // Green
+            pdf.roundedRect((pageWidth - 60) / 2, yPos, 60, 10, 2, 2, 'F');
+            pdf.setTextColor(255, 255, 255);
+            pdf.setFontSize(10);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text(statusText, pageWidth / 2, yPos + 7, { align: 'center' });
+
+            // Delivery Information Section
+            yPos += 25;
+            pdf.setFillColor(245, 245, 245);
+            pdf.rect(20, yPos, pageWidth - 40, 30, 'F');
+            pdf.setDrawColor(200, 200, 200);
+            pdf.rect(20, yPos, pageWidth - 40, 30, 'S');
+
+            pdf.setTextColor(0, 0, 0);
+            pdf.setFontSize(11);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text(t('labels.estimatedDelivery'), 25, yPos + 8);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text(data.estimatedDelivery, 25, yPos + 15);
+
+            pdf.setFont('helvetica', 'bold');
+            pdf.text(t('labels.serviceType'), 25, yPos + 22);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text(data.packageDetails.type, 25, yPos + 29);
+
+            // Package Details Section
+            yPos += 40;
+            pdf.setFontSize(12);
+            pdf.setFont('helvetica', 'bold');
+            pdf.setTextColor(249, 115, 22);
+            pdf.text(t('labels.packageDetails'), 20, yPos);
+
+            yPos += 8;
+            pdf.setFillColor(245, 245, 245);
+            pdf.rect(20, yPos, pageWidth - 40, 20, 'F');
+            pdf.setDrawColor(200, 200, 200);
+            pdf.rect(20, yPos, pageWidth - 40, 20, 'S');
+
+            pdf.setTextColor(0, 0, 0);
+            pdf.setFontSize(10);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text(`${t('labels.weight')}:`, 25, yPos + 7);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text(data.packageDetails.weight, 60, yPos + 7);
+
+            pdf.setFont('helvetica', 'bold');
+            pdf.text(`${t('labels.description')}:`, 25, yPos + 14);
+            pdf.setFont('helvetica', 'normal');
+            const descText = pdf.splitTextToSize(data.packageDetails.description, pageWidth - 90);
+            pdf.text(descText, 60, yPos + 14);
+
+            // Sender Information
+            yPos += 30;
+            pdf.setFontSize(12);
+            pdf.setFont('helvetica', 'bold');
+            pdf.setTextColor(59, 130, 246); // Blue
+            pdf.text(t('labels.sender'), 20, yPos);
+
+            yPos += 8;
+            pdf.setFillColor(239, 246, 255);
+            pdf.rect(20, yPos, (pageWidth - 45) / 2, 25, 'F');
+            pdf.setDrawColor(59, 130, 246);
+            pdf.rect(20, yPos, (pageWidth - 45) / 2, 25, 'S');
+
+            pdf.setTextColor(0, 0, 0);
+            pdf.setFontSize(9);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text(data.sender.name, 25, yPos + 6);
+            pdf.setFont('helvetica', 'normal');
+            const senderAddr = pdf.splitTextToSize(data.sender.address, (pageWidth - 55) / 2);
+            pdf.text(senderAddr, 25, yPos + 11);
+            pdf.text(data.sender.phone, 25, yPos + 20);
+
+            // Receiver Information
+            pdf.setFontSize(12);
+            pdf.setFont('helvetica', 'bold');
+            pdf.setTextColor(34, 197, 94); // Green
+            pdf.text(t('labels.receiver'), pageWidth / 2 + 2.5, yPos - 8);
+
+            pdf.setFillColor(240, 253, 244);
+            pdf.rect(pageWidth / 2 + 2.5, yPos, (pageWidth - 45) / 2, 25, 'F');
+            pdf.setDrawColor(34, 197, 94);
+            pdf.rect(pageWidth / 2 + 2.5, yPos, (pageWidth - 45) / 2, 25, 'S');
+
+            pdf.setTextColor(0, 0, 0);
+            pdf.setFontSize(9);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text(data.receiver.name, pageWidth / 2 + 7.5, yPos + 6);
+            pdf.setFont('helvetica', 'normal');
+            const receiverAddr = pdf.splitTextToSize(data.receiver.address, (pageWidth - 55) / 2);
+            pdf.text(receiverAddr, pageWidth / 2 + 7.5, yPos + 11);
+            pdf.text(data.receiver.phone, pageWidth / 2 + 7.5, yPos + 20);
+
+            // Tracking History
+            yPos += 35;
+            if (yPos > pageHeight - 60) {
+                pdf.addPage();
+                yPos = 20;
             }
+
+            pdf.setFontSize(12);
+            pdf.setFont('helvetica', 'bold');
+            pdf.setTextColor(249, 115, 22);
+            pdf.text(t('labels.history'), 20, yPos);
+
+            yPos += 8;
+            data.events.slice(0, 5).forEach((event, index) => {
+                if (yPos > pageHeight - 30) {
+                    pdf.addPage();
+                    yPos = 20;
+                }
+
+                pdf.setFillColor(index === 0 ? 255, 247, 237 : 250, 250, 250);
+                pdf.rect(20, yPos, pageWidth - 40, 18, 'F');
+                pdf.setDrawColor(220, 220, 220);
+                pdf.rect(20, yPos, pageWidth - 40, 18, 'S');
+
+                pdf.setTextColor(100, 100, 100);
+                pdf.setFontSize(8);
+                pdf.setFont('helvetica', 'normal');
+                pdf.text(new Date(event.timestamp).toLocaleString(), 25, yPos + 5);
+
+                pdf.setTextColor(0, 0, 0);
+                pdf.setFontSize(9);
+                pdf.setFont('helvetica', 'bold');
+                pdf.text(event.description, 25, yPos + 10);
+
+                pdf.setFont('helvetica', 'normal');
+                pdf.setTextColor(100, 100, 100);
+                pdf.text(event.location, 25, yPos + 15);
+
+                yPos += 20;
+            });
+
+            // Footer
+            yPos = pageHeight - 20;
+            pdf.setFillColor(249, 115, 22);
+            pdf.rect(0, yPos - 5, pageWidth, 30, 'F');
+
+            pdf.setTextColor(255, 255, 255);
+            pdf.setFontSize(10);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text('FastRocket Delivery', pageWidth / 2, yPos + 3, { align: 'center' });
+            pdf.setFontSize(8);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text('Premium delivery solutions for the modern world', pageWidth / 2, yPos + 8, { align: 'center' });
+            pdf.text(`© ${new Date().getFullYear()} FastRocket. All rights reserved.`, pageWidth / 2, yPos + 13, { align: 'center' });
+
+            // Save PDF
+            pdf.save(`FastRocket-Receipt-${data.trackingNumber}.pdf`);
+            console.log('PDF receipt generated successfully');
         } catch (err: any) {
-            console.error('Error generating PDF:', err);
-            const shouldPrint = confirm(`Failed to generate PDF automatically: ${err.message || 'Unknown error'}.\n\nWould you like to open the print dialog instead?`);
-            if (shouldPrint) {
-                window.print();
-            }
+            console.error('Error generating PDF receipt:', err);
+            alert(`Failed to generate PDF receipt: ${err.message || 'Unknown error'}`);
         } finally {
             setIsGeneratingPDF(false);
         }
