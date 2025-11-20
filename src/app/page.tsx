@@ -444,19 +444,22 @@ export default function Home() {
                 name: "Sarah Johnson",
                 role: "Small Business Owner",
                 content: "FastRocket has been a game-changer for my e-commerce business. Their same-day delivery option keeps my customers happy and coming back!",
-                rating: 5
+                rating: 5,
+                image: "/images/testimonials/sarah.png"
               },
               {
                 name: "Michael Chen",
                 role: "International Trader",
                 content: "I ship products globally, and FastRocket's international service is unmatched. Reliable tracking and customs support make everything seamless.",
-                rating: 5
+                rating: 5,
+                image: "/images/testimonials/michael.png"
               },
               {
                 name: "Emily Rodriguez",
                 role: "Logistics Manager",
                 content: "The business solutions and API integration have streamlined our entire shipping process. Excellent service and support team!",
-                rating: 5
+                rating: 5,
+                image: "/images/testimonials/emily.png"
               }
             ].map((testimonial, index) => (
               <motion.div
@@ -467,6 +470,20 @@ export default function Home() {
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl border bg-card p-8 shadow-sm"
               >
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-primary/10">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  </div>
+                </div>
                 <div className="mb-4 flex text-primary">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg key={i} className="h-5 w-5 fill-current" viewBox="0 0 20 20">
@@ -474,11 +491,7 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <p className="mb-6 text-muted-foreground">"{testimonial.content}"</p>
-                <div>
-                  <div className="font-semibold">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                </div>
+                <p className="text-muted-foreground">"{testimonial.content}"</p>
               </motion.div>
             ))}
           </div>
