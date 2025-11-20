@@ -72,27 +72,39 @@ export const metadata: Metadata = {
   },
 };
 
+import { I18nProvider } from '@/components/I18nProvider';
+import { cookies } from 'next/headers';
 
-
-// ... imports
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const locale = cookieStore.get('NEXT_LOCALE')?.value || 'en';
+
+  let messages;
+  try {
+    messages = (await import(`@/messages/${locale}.json`)).default;
+  } catch (error) {
+    // Fallback to English if locale file not found
+    messages = (await import(`@/messages/en.json`)).default;
+  }
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
       >
-        <Providers>
-          <GoogleAnalytics />
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <ChatWidget />
-        </Providers>
+        <I18nProvider locale={locale} messages={messages}>
+          <Providers>
+            <GoogleAnalytics />
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <ChatWidget />
+          </Providers>
+        </I18nProvider>
       </body>
     </html>
   );

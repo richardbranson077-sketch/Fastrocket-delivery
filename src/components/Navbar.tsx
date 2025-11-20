@@ -4,16 +4,19 @@ import Link from 'next/link';
 import { Rocket, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslations } from 'next-intl';
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [hoveredPath, setHoveredPath] = useState<string | null>(null);
+    const t = useTranslations('Navigation');
 
     const navLinks = [
-        { path: '/tracking', label: 'Track Package' },
-        { path: '/services', label: 'Services' },
-        { path: '/about', label: 'About Us' },
-        { path: '/contact', label: 'Contact' },
+        { path: '/tracking', label: t('trackPackage') },
+        { path: '/services', label: t('services') },
+        { path: '/about', label: t('about') },
+        { path: '/contact', label: t('contact') },
     ];
 
     const mobileMenuVariants = {
@@ -73,7 +76,9 @@ export function Navbar() {
                             {link.label}
                         </Link>
                     ))}
-
+                    <div className="ml-2 border-l border-border/40 pl-2">
+                        <LanguageSwitcher />
+                    </div>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -108,7 +113,9 @@ export function Navbar() {
                                     </Link>
                                 </motion.div>
                             ))}
-
+                            <div className="pt-4 border-t border-border/40">
+                                <LanguageSwitcher />
+                            </div>
                         </div>
                     </motion.div>
                 )}

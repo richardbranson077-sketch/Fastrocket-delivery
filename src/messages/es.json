@@ -1,0 +1,91 @@
+{
+    "Navigation": {
+        "trackPackage": "Rastrear Paquete",
+        "services": "Servicios",
+        "about": "Nosotros",
+        "contact": "Contacto",
+        "adminLogin": "Acceso Admin"
+    },
+    "Hero": {
+        "badge": "FastRocket",
+        "titlePrefix": "Entrega a la velocidad de",
+        "subtitle": "Experimente el servicio de entrega más rápido y confiable. Rastree sus paquetes en tiempo real y disfrute de tranquilidad con FastRocket.",
+        "trackPlaceholder": "Ingrese su número de rastreo...",
+        "trackButton": "Rastrear Ahora",
+        "example": "ej., FR-123456789",
+        "stats": {
+            "deliveries": "10M+ Entregas",
+            "countries": "200+ Países",
+            "onTime": "99.9% A Tiempo"
+        }
+    },
+    "Features": {
+        "title": "¿Por qué elegir FastRocket?",
+        "subtitle": "Entregamos más que paquetes; entregamos promesas.",
+        "fast": {
+            "title": "Ultrarrápido",
+            "description": "Opciones de entrega el mismo día disponibles para ciudades principales. Valoramos su tiempo."
+        },
+        "global": {
+            "title": "Alcance Global",
+            "description": "Envíos a más de 200 países en todo el mundo con actualizaciones de rastreo en tiempo real."
+        },
+        "secure": {
+            "title": "Manejo Seguro",
+            "description": "Sus paquetes son manejados con el máximo cuidado y asegurados contra daños."
+        }
+    },
+    "Future": {
+        "title": "El Futuro de la Entrega",
+        "subtitle": "Experimente la próxima generación de logística con FastRocket",
+        "drone": {
+            "title": "Entrega con Drones\nLista para el Futuro",
+            "description": "Pioneros en entrega aérea autónoma para logística urbana instantánea"
+        },
+        "electric": {
+            "title": "Flota Eléctrica\nEcológica",
+            "description": "Entrega de última milla cero emisiones protegiendo nuestro planeta"
+        },
+        "plane": {
+            "title": "Velocidad que\nDesafía la Gravedad",
+            "description": "Entrega el mismo día disponible - sus paquetes urgentes llegan antes de que se dé cuenta"
+        }
+    },
+    "Tracking": {
+        "title": "Rastree su Envío",
+        "subtitle": "Ingrese su número de rastreo para obtener actualizaciones en tiempo real sobre su paquete.",
+        "searchPlaceholder": "Ingrese número de rastreo (ej., FR-123456789)",
+        "trackButton": "Rastrear",
+        "tracking": "Rastreando...",
+        "saveReceipt": "Guardar Recibo",
+        "saving": "Guardando...",
+        "notFound": "Número de rastreo no encontrado. Por favor verifique e intente de nuevo.",
+        "error": "Ocurrió un error al obtener los datos de rastreo.",
+        "status": {
+            "delivered": "Entregado",
+            "outForDelivery": "En Reparto",
+            "inTransit": "En Tránsito"
+        },
+        "labels": {
+            "trackingNumber": "Número de Rastreo",
+            "estimatedDelivery": "Entrega Estimada",
+            "serviceType": "Tipo de Servicio",
+            "weight": "Peso",
+            "description": "Descripción",
+            "sender": "Remitente",
+            "receiver": "Destinatario",
+            "name": "Nombre",
+            "address": "Dirección",
+            "phone": "Teléfono",
+            "history": "Historial de Rastreo",
+            "packageDetails": "Detalles del Paquete"
+        },
+        "steps": {
+            "ordered": "Ordenado",
+            "processing": "Procesando",
+            "shipped": "Enviado",
+            "outForDelivery": "En Reparto",
+            "delivered": "Entregado"
+        }
+    }
+}

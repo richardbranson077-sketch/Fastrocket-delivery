@@ -1,0 +1,91 @@
+{
+    "Navigation": {
+        "trackPackage": "Suivre Colis",
+        "services": "Services",
+        "about": "À Propos",
+        "contact": "Contact",
+        "adminLogin": "Connexion Admin"
+    },
+    "Hero": {
+        "badge": "FastRocket",
+        "titlePrefix": "Livraison à la vitesse de",
+        "subtitle": "Découvrez le service de livraison le plus rapide et le plus fiable. Suivez vos colis en temps réel et profitez de la tranquillité d'esprit avec FastRocket.",
+        "trackPlaceholder": "Entrez votre numéro de suivi...",
+        "trackButton": "Suivre",
+        "example": "ex., FR-123456789",
+        "stats": {
+            "deliveries": "10M+ Livraisons",
+            "countries": "200+ Pays",
+            "onTime": "99.9% À l'heure"
+        }
+    },
+    "Features": {
+        "title": "Pourquoi choisir FastRocket ?",
+        "subtitle": "Nous livrons plus que des colis ; nous livrons des promesses.",
+        "fast": {
+            "title": "Éclair Rapide",
+            "description": "Options de livraison le jour même disponibles pour les grandes villes. Nous valorisons votre temps."
+        },
+        "global": {
+            "title": "Portée Mondiale",
+            "description": "Expédition vers plus de 200 pays dans le monde avec des mises à jour de suivi en temps réel."
+        },
+        "secure": {
+            "title": "Manipulation Sécurisée",
+            "description": "Vos colis sont traités avec le plus grand soin et assurés contre les dommages."
+        }
+    },
+    "Future": {
+        "title": "L'Avenir de la Livraison",
+        "subtitle": "Découvrez la prochaine génération de logistique avec FastRocket",
+        "drone": {
+            "title": "Livraison par Drone\nPrête pour l'Avenir",
+            "description": "Pionnier de la livraison aérienne autonome pour une logistique urbaine instantanée"
+        },
+        "electric": {
+            "title": "Flotte Électrique\nÉcologique",
+            "description": "Livraison du dernier kilomètre zéro émission protégeant notre planète"
+        },
+        "plane": {
+            "title": "Vitesse qui\nDéfie la Gravité",
+            "description": "Livraison le jour même disponible - vos colis urgents arrivent avant que vous ne le sachiez"
+        }
+    },
+    "Tracking": {
+        "title": "Suivez Votre Envoi",
+        "subtitle": "Entrez votre numéro de suivi pour obtenir des mises à jour en temps réel sur votre colis.",
+        "searchPlaceholder": "Entrez le numéro de suivi (ex., FR-123456789)",
+        "trackButton": "Suivre",
+        "tracking": "Suivi...",
+        "saveReceipt": "Enregistrer le Reçu",
+        "saving": "Enregistrement...",
+        "notFound": "Numéro de suivi introuvable. Veuillez vérifier et réessayer.",
+        "error": "Une erreur s'est produite lors de la récupération des données de suivi.",
+        "status": {
+            "delivered": "Livré",
+            "outForDelivery": "En Livraison",
+            "inTransit": "En Transit"
+        },
+        "labels": {
+            "trackingNumber": "Numéro de Suivi",
+            "estimatedDelivery": "Livraison Estimée",
+            "serviceType": "Type de Service",
+            "weight": "Poids",
+            "description": "Description",
+            "sender": "Expéditeur",
+            "receiver": "Destinataire",
+            "name": "Nom",
+            "address": "Adresse",
+            "phone": "Téléphone",
+            "history": "Historique de Suivi",
+            "packageDetails": "Détails du Colis"
+        },
+        "steps": {
+            "ordered": "Commandé",
+            "processing": "Traitement",
+            "shipped": "Expédié",
+            "outForDelivery": "En Livraison",
+            "delivered": "Livré"
+        }
+    }
+}

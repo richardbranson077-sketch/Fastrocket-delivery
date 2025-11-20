@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     Package,
     Plus,
@@ -13,7 +13,9 @@ import {
     Rocket,
     Truck,
     CheckCircle,
-    AlertCircle
+    AlertCircle,
+    Edit,
+    X
 } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 import { Shipment } from '@/lib/db';
@@ -25,37 +27,81 @@ export default function AdminDashboard() {
     const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
 
+    // Modal State
+    const [selectedShipment, setSelectedShipment] = useState<Shipment | null>(null);
+    const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+    const [updateForm, setUpdateForm] = useState({
+        status: '',
+        location: '',
+        description: ''
+    });
+    const [isUpdating, setIsUpdating] = useState(false);
+
     useEffect(() => {
         if (status === 'unauthenticated') {
             router.push('/login');
         }
     }, [status, router]);
 
-    useEffect(() => {
-        const fetchShipments = async () => {
-            try {
-                // Since we don't have a dedicated "get all" API yet, we'll create one or just rely on the file system if we were server-side.
-                // But since this is a client component, we need an API.
-                // Let's quickly create a simple API route for getting all shipments or just use the create one with GET? 
-                // Actually, let's just add a GET handler to /api/shipments/create for listing all (renaming it would be better but let's stick to simple for now)
-                // Wait, I should create a new route /api/shipments/list
-
-                const response = await fetch('/api/shipments/list');
-                if (response.ok) {
-                    const data = await response.json();
-                    setShipments(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch shipments:', error);
-            } finally {
-                setIsLoading(false);
+    const fetchShipments = async () => {
+        try {
+            const response = await fetch('/api/shipments/list');
+            if (response.ok) {
+                const data = await response.json();
+                setShipments(data);
             }
-        };
+        } catch (error) {
+            console.error('Failed to fetch shipments:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
+    useEffect(() => {
         if (session) {
             fetchShipments();
         }
     }, [session]);
+
+    const openUpdateModal = (shipment: Shipment) => {
+        setSelectedShipment(shipment);
+        setUpdateForm({
+            status: shipment.status,
+            location: '',
+            description: ''
+        });
+        setIsUpdateModalOpen(true);
+    };
+
+    const handleUpdateSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!selectedShipment) return;
+
+        setIsUpdating(true);
+        try {
+            const response = await fetch('/api/shipments/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    trackingNumber: selectedShipment.trackingNumber,
+                    status: updateForm.status,
+                    location: updateForm.location,
+                    description: updateForm.description
+                })
+            });
+
+            if (!response.ok) throw new Error('Failed to update');
+
+            alert('Shipment updated and notifications sent!');
+            setIsUpdateModalOpen(false);
+            fetchShipments(); // Refresh list
+        } catch (error) {
+            console.error('Update failed:', error);
+            alert('Failed to update shipment');
+        } finally {
+            setIsUpdating(false);
+        }
+    };
 
     if (status === 'loading' || isLoading) {
         return (
@@ -211,8 +257,8 @@ export default function AdminDashboard() {
                                             <td className="px-6 py-4">{shipment.receiverName}</td>
                                             <td className="px-6 py-4">
                                                 <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${shipment.status === 'delivered' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' :
-                                                        shipment.status === 'in_transit' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400' :
-                                                            'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
+                                                    shipment.status === 'in_transit' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400' :
+                                                        'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
                                                     }`}>
                                                     {shipment.status.replace('_', ' ').toUpperCase()}
                                                 </span>
@@ -221,9 +267,22 @@ export default function AdminDashboard() {
                                                 {new Date(shipment.createdAt).toLocaleDateString()}
                                             </td>
                                             <td className="px-6 py-4 text-right">
-                                                <Link href={`/tracking?id=${shipment.trackingNumber}`} className="text-sm font-medium text-primary hover:underline">
-                                                    View
-                                                </Link>
+                                                <div className="flex justify-end gap-2">
+                                                    <button
+                                                        onClick={() => openUpdateModal(shipment)}
+                                                        className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-primary"
+                                                        title="Update Status"
+                                                    >
+                                                        <Edit className="h-4 w-4" />
+                                                    </button>
+                                                    <Link
+                                                        href={`/tracking?id=${shipment.trackingNumber}`}
+                                                        className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-primary"
+                                                        title="View Details"
+                                                    >
+                                                        <Search className="h-4 w-4" />
+                                                    </Link>
+                                                </div>
                                             </td>
                                         </tr>
                                     ))
@@ -233,6 +292,94 @@ export default function AdminDashboard() {
                     </div>
                 </div>
             </main>
+
+            {/* Update Status Modal */}
+            <AnimatePresence>
+                {isUpdateModalOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl dark:bg-slate-900"
+                        >
+                            <div className="mb-4 flex items-center justify-between">
+                                <h2 className="text-xl font-bold">Update Status</h2>
+                                <button
+                                    onClick={() => setIsUpdateModalOpen(false)}
+                                    className="rounded-full p-1 hover:bg-muted"
+                                >
+                                    <X className="h-5 w-5" />
+                                </button>
+                            </div>
+
+                            <div className="mb-4 rounded-lg bg-muted/50 p-3 text-sm">
+                                <p><span className="font-semibold">Tracking #:</span> {selectedShipment?.trackingNumber}</p>
+                            </div>
+
+                            <form onSubmit={handleUpdateSubmit} className="space-y-4">
+                                <div>
+                                    <label className="mb-1 block text-sm font-medium">New Status</label>
+                                    <select
+                                        value={updateForm.status}
+                                        onChange={(e) => setUpdateForm({ ...updateForm, status: e.target.value })}
+                                        className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                                        required
+                                    >
+                                        <option value="pending">Pending Pickup</option>
+                                        <option value="picked_up">Picked Up</option>
+                                        <option value="processing">Processing at Facility</option>
+                                        <option value="in_transit">In Transit</option>
+                                        <option value="customs">Customs Clearance</option>
+                                        <option value="out_for_delivery">Out for Delivery</option>
+                                        <option value="delivered">Delivered</option>
+                                        <option value="exception">Exception / Delay</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="mb-1 block text-sm font-medium">Location</label>
+                                    <input
+                                        type="text"
+                                        value={updateForm.location}
+                                        onChange={(e) => setUpdateForm({ ...updateForm, location: e.target.value })}
+                                        placeholder="e.g., New York Distribution Center"
+                                        className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="mb-1 block text-sm font-medium">Description</label>
+                                    <textarea
+                                        value={updateForm.description}
+                                        onChange={(e) => setUpdateForm({ ...updateForm, description: e.target.value })}
+                                        placeholder="e.g., Package has arrived at the facility"
+                                        rows={3}
+                                        className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                                        required
+                                    />
+                                </div>
+
+                                <div className="flex justify-end gap-3 pt-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsUpdateModalOpen(false)}
+                                        className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-muted"
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        disabled={isUpdating}
+                                        className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
+                                    >
+                                        {isUpdating ? 'Updating...' : 'Update & Notify'}
+                                    </button>
+                                </div>
+                            </form>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

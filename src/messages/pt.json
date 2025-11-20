@@ -1,0 +1,91 @@
+{
+    "Navigation": {
+        "trackPackage": "Rastrear Pacote",
+        "services": "Serviços",
+        "about": "Sobre Nós",
+        "contact": "Contato",
+        "adminLogin": "Login Admin"
+    },
+    "Hero": {
+        "badge": "FastRocket",
+        "titlePrefix": "Entrega na velocidade de",
+        "subtitle": "Experimente o serviço de entrega mais rápido e confiável. Rastreie seus pacotes em tempo real.",
+        "trackPlaceholder": "Digite seu número de rastreamento...",
+        "trackButton": "Rastrear Agora",
+        "example": "ex: FR-123456789",
+        "stats": {
+            "deliveries": "10M+ Entregas",
+            "countries": "200+ Países",
+            "onTime": "99.9% No Prazo"
+        }
+    },
+    "Features": {
+        "title": "Por que escolher a FastRocket?",
+        "subtitle": "Entregamos mais do que apenas pacotes; entregamos promessas.",
+        "fast": {
+            "title": "Rápido como um raio",
+            "description": "Opções de entrega no mesmo dia disponíveis para as principais cidades."
+        },
+        "global": {
+            "title": "Alcance Global",
+            "description": "Envio para mais de 200 países em todo o mundo."
+        },
+        "secure": {
+            "title": "Manuseio Seguro",
+            "description": "Seus pacotes são manuseados com o máximo cuidado."
+        }
+    },
+    "Future": {
+        "title": "O Futuro da Entrega",
+        "subtitle": "Experimente a próxima geração de logística",
+        "drone": {
+            "title": "Entrega por Drone\nPronta para o Futuro",
+            "description": "Pioneirismo na entrega aérea autônoma"
+        },
+        "electric": {
+            "title": "Frota Elétrica\nEcológica",
+            "description": "Entrega de última milha com zero emissões"
+        },
+        "plane": {
+            "title": "Velocidade que\nDesafia a Gravidade",
+            "description": "Entrega no mesmo dia disponível"
+        }
+    },
+    "Tracking": {
+        "title": "Rastreie sua Encomenda",
+        "subtitle": "Digite seu número de rastreamento para obter atualizações em tempo real.",
+        "searchPlaceholder": "Digite o número de rastreamento (ex: FR-123456789)",
+        "trackButton": "Rastrear",
+        "tracking": "Rastreando...",
+        "saveReceipt": "Salvar Recibo",
+        "saving": "Salvando...",
+        "notFound": "Número de rastreamento não encontrado.",
+        "error": "Ocorreu um erro.",
+        "status": {
+            "delivered": "Entregue",
+            "outForDelivery": "Saiu para Entrega",
+            "inTransit": "Em Trânsito"
+        },
+        "labels": {
+            "trackingNumber": "Número de Rastreamento",
+            "estimatedDelivery": "Entrega Estimada",
+            "serviceType": "Tipo de Serviço",
+            "weight": "Peso",
+            "description": "Descrição",
+            "sender": "Remetente",
+            "receiver": "Destinatário",
+            "name": "Nome",
+            "address": "Endereço",
+            "phone": "Telefone",
+            "history": "Histórico",
+            "packageDetails": "Detalhes do Pacote"
+        },
+        "steps": {
+            "ordered": "Pedido",
+            "processing": "Processando",
+            "shipped": "Enviado",
+            "outForDelivery": "Saiu para Entrega",
+            "delivered": "Entregue"
+        }
+    }
+}

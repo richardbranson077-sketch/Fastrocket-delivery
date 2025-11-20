@@ -6,11 +6,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import RotatingText from '@/components/RotatingText';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 import LogisticsBackground from '@/components/LogisticsBackground';
 
 export default function Home() {
   const router = useRouter();
+  const t = useTranslations('Hero');
+  const tNav = useTranslations('Navigation');
+  const tFeatures = useTranslations('Features');
+  const tFuture = useTranslations('Future');
+  const tTracking = useTranslations('Tracking');
+
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
@@ -30,10 +37,10 @@ export default function Home() {
               <div className="relative flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <Rocket className="h-4 w-4" />
               </div>
-              <span className="text-sm font-bold tracking-tight text-primary-foreground">FastRocket</span>
+              <span className="text-sm font-bold tracking-tight text-primary-foreground">{t('badge')}</span>
             </motion.div>
             <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Delivery at the speed of <br className="hidden sm:block" />
+              {t('titlePrefix')} <br className="hidden sm:block" />
               <motion.span
                 initial={{ backgroundPosition: "0% 50%" }}
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
@@ -44,7 +51,7 @@ export default function Home() {
               </motion.span>
             </h1>
             <p className="mb-8 max-w-2xl text-lg text-slate-300 md:text-xl">
-              Experience the fastest, most reliable delivery service. Track your packages in real-time and enjoy peace of mind with FastRocket.
+              {t('subtitle')}
             </p>
           </motion.div>
 
@@ -68,7 +75,7 @@ export default function Home() {
               <input
                 name="trackingId"
                 type="text"
-                placeholder="Enter your tracking number..."
+                placeholder={t('trackPlaceholder')}
                 className="h-14 w-full rounded-full border border-white/20 bg-white/10 px-6 py-2 pr-36 text-base text-white placeholder:text-slate-400 shadow-sm backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 hover:shadow-md focus:shadow-lg"
               />
               <motion.button
@@ -77,11 +84,11 @@ export default function Home() {
                 type="submit"
                 className="absolute right-1.5 top-1.5 h-11 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-6 text-sm font-medium text-white shadow-lg transition-all hover:from-orange-600 hover:to-orange-700"
               >
-                Track Now
+                {t('trackButton')}
               </motion.button>
             </form>
             <p className="mt-3 text-xs text-slate-400">
-              e.g., FR-123456789
+              {t('example')}
             </p>
           </motion.div>
 
@@ -94,15 +101,15 @@ export default function Home() {
           >
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-green-500"></div>
-              <span>10M+ Deliveries</span>
+              <span>{t('stats.deliveries')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-              <span>200+ Countries</span>
+              <span>{t('stats.countries')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-purple-500"></div>
-              <span>99.9% On-Time</span>
+              <span>{t('stats.onTime')}</span>
             </div>
           </motion.div>
         </div>
@@ -112,26 +119,26 @@ export default function Home() {
       <section className="bg-muted/30 py-20">
         <div className="container max-w-screen-2xl px-4">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Why Choose FastRocket?</h2>
-            <p className="mt-4 text-muted-foreground">We deliver more than just packages; we deliver promises.</p>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{tFeatures('title')}</h2>
+            <p className="mt-4 text-muted-foreground">{tFeatures('subtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               {
                 icon: Clock,
-                title: "Lightning Fast",
-                description: "Same-day delivery options available for major cities. We value your time."
+                title: tFeatures('fast.title'),
+                description: tFeatures('fast.description')
               },
               {
                 icon: Globe,
-                title: "Global Reach",
-                description: "Shipping to over 200 countries worldwide with real-time tracking updates."
+                title: tFeatures('global.title'),
+                description: tFeatures('global.description')
               },
               {
                 icon: ShieldCheck,
-                title: "Secure Handling",
-                description: "Your packages are handled with utmost care and insured against damage."
+                title: tFeatures('secure.title'),
+                description: tFeatures('secure.description')
               }
             ].map((feature, index) => (
               <motion.div
@@ -158,26 +165,26 @@ export default function Home() {
       <section className="bg-white py-20">
         <div className="container max-w-screen-2xl px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">The Future of Delivery</h2>
-            <p className="text-muted-foreground">Experience the next generation of logistics with FastRocket</p>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">{tFuture('title')}</h2>
+            <p className="text-muted-foreground">{tFuture('subtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               {
                 src: "/images/delivery-drone.png",
-                title: "Future-Ready\nDrone Delivery",
-                description: "Pioneering autonomous aerial delivery for instant urban logistics"
+                title: tFuture('drone.title'),
+                description: tFuture('drone.description')
               },
               {
                 src: "/images/delivery-van.png",
-                title: "Eco-Friendly\nElectric Fleet",
-                description: "Zero-emission last-mile delivery protecting our planet"
+                title: tFuture('electric.title'),
+                description: tFuture('electric.description')
               },
               {
                 src: "/images/cargo-plane.png",
-                title: "Speed That\nDefies Gravity",
-                description: "Same-day delivery available - your urgent packages arrive before you know it"
+                title: tFuture('plane.title'),
+                description: tFuture('plane.description')
               }
             ].map((item, index) => (
               <motion.div

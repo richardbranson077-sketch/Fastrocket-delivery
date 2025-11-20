@@ -5,9 +5,9 @@ export const dynamic = 'force-dynamic';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getTrackingData, ShipmentData } from '@/lib/tracking';
-import { getTrackingData, ShipmentData } from '@/lib/tracking';
 import { Search, Package, Truck, CheckCircle, MapPin, Clock, AlertCircle, HelpCircle, ChevronDown, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 function TrackingContent() {
     const searchParams = useSearchParams();
@@ -17,6 +17,8 @@ function TrackingContent() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [hasSearched, setHasSearched] = useState(false);
+
+    const t = useTranslations('Tracking');
 
     useEffect(() => {
         if (initialQuery) {
@@ -37,10 +39,10 @@ function TrackingContent() {
             if (result) {
                 setData(result);
             } else {
-                setError('Tracking number not found. Please check and try again.');
+                setError(t('notFound'));
             }
         } catch (err) {
-            setError('An error occurred while fetching tracking data.');
+            setError(t('error'));
         } finally {
             setLoading(false);
         }
@@ -132,8 +134,8 @@ function TrackingContent() {
                             <Package className="h-4 w-4" />
                             Package Tracking
                         </div>
-                        <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Track Your Shipment</h1>
-                        <p className="text-slate-300">Enter your tracking number to get real-time updates on your package.</p>
+                        <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">{t('title')}</h1>
+                        <p className="text-slate-300">{t('subtitle')}</p>
                     </motion.div>
                 </div>
             </div>
@@ -152,7 +154,7 @@ function TrackingContent() {
                             type="text"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
-                            placeholder="Enter tracking number (e.g., FR-123456789)"
+                            placeholder={t('searchPlaceholder')}
                             className="h-14 w-full rounded-full border border-input bg-white pl-12 pr-36 text-base shadow-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 hover:shadow-xl"
                         />
                         <motion.button
@@ -162,7 +164,7 @@ function TrackingContent() {
                             disabled={loading}
                             className="absolute right-1.5 top-1.5 h-11 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-6 text-sm font-medium text-white shadow-lg transition-all hover:from-orange-600 hover:to-orange-700 disabled:opacity-50"
                         >
-                            {loading ? 'Tracking...' : 'Track'}
+                            {loading ? t('tracking') : t('trackButton')}
                         </motion.button>
                     </form>
                 </motion.div>
@@ -196,12 +198,12 @@ function TrackingContent() {
                                 {isGeneratingPDF ? (
                                     <>
                                         <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate-400 border-t-transparent"></div>
-                                        Saving...
+                                        {t('saving')}
                                     </>
                                 ) : (
                                     <>
                                         <Download className="h-4 w-4" />
-                                        Save Receipt
+                                        {t('saveReceipt')}
                                     </>
                                 )}
                             </button>
@@ -215,12 +217,12 @@ function TrackingContent() {
                                 <div className="rounded-2xl border bg-white p-6 shadow-xl">
                                     <div className="mb-6 flex items-start justify-between">
                                         <div>
-                                            <p className="mb-1 text-sm text-muted-foreground">Tracking Number</p>
+                                            <p className="mb-1 text-sm text-muted-foreground">{t('labels.trackingNumber')}</p>
                                             <h2 className="text-2xl font-bold text-orange-600">{data.trackingNumber}</h2>
                                         </div>
                                         <div className="inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-700">
                                             <div className="h-2.5 w-2.5 animate-pulse rounded-full bg-green-500"></div>
-                                            {data.status === 'delivered' ? 'Delivered' : data.status === 'out_for_delivery' ? 'Out for Delivery' : 'In Transit'}
+                                            {data.status === 'delivered' ? t('status.delivered') : data.status === 'out_for_delivery' ? t('status.outForDelivery') : t('status.inTransit')}
                                         </div>
                                     </div>
 
@@ -229,14 +231,14 @@ function TrackingContent() {
                                         <div className="rounded-xl bg-gradient-to-br from-orange-50 to-orange-100/50 p-4">
                                             <div className="mb-2 flex items-center gap-2 text-sm font-medium text-orange-700">
                                                 <Clock className="h-4 w-4" />
-                                                Estimated Delivery
+                                                {t('labels.estimatedDelivery')}
                                             </div>
                                             <p className="text-lg font-bold text-orange-900">{data.estimatedDelivery}</p>
                                         </div>
                                         <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 p-4">
                                             <div className="mb-2 flex items-center gap-2 text-sm font-medium text-blue-700">
                                                 <Package className="h-4 w-4" />
-                                                Service Type
+                                                {t('labels.serviceType')}
                                             </div>
                                             <p className="text-lg font-bold text-blue-900">{data.packageDetails.type}</p>
                                         </div>
@@ -252,7 +254,7 @@ function TrackingContent() {
                                             className="absolute left-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-gradient-to-r from-orange-500 to-orange-600"
                                         ></motion.div>
                                         <div className="relative flex justify-between">
-                                            {['Ordered', 'Processing', 'Shipped', 'Out for Delivery', 'Delivered'].map((step, index) => {
+                                            {[t('steps.ordered'), t('steps.processing'), t('steps.shipped'), t('steps.outForDelivery'), t('steps.delivered')].map((step, index) => {
                                                 const isActive = index <= (data.status === 'delivered' ? 4 : data.status === 'out_for_delivery' ? 3 : 2);
                                                 return (
                                                     <div key={step} className="flex flex-col items-center space-y-2">
@@ -276,7 +278,7 @@ function TrackingContent() {
                                 <div className="rounded-2xl border bg-white p-6 shadow-xl">
                                     <h3 className="mb-6 flex items-center gap-2 text-lg font-bold">
                                         <Clock className="h-5 w-5 text-orange-500" />
-                                        Tracking History
+                                        {t('labels.history')}
                                     </h3>
                                     <div className="space-y-4 border-l-2 border-orange-200 pl-6">
                                         {data.events.map((event, index) => (
@@ -310,15 +312,15 @@ function TrackingContent() {
                                 <div className="rounded-2xl border bg-white p-6 shadow-xl">
                                     <h3 className="mb-4 flex items-center gap-2 text-lg font-bold">
                                         <Package className="h-5 w-5 text-orange-500" />
-                                        Package Details
+                                        {t('labels.packageDetails')}
                                     </h3>
                                     <div className="space-y-4">
                                         <div className="rounded-lg bg-slate-50 p-3">
-                                            <p className="mb-1 text-xs font-medium text-muted-foreground">Weight</p>
+                                            <p className="mb-1 text-xs font-medium text-muted-foreground">{t('labels.weight')}</p>
                                             <p className="font-semibold">{data.packageDetails.weight}</p>
                                         </div>
                                         <div className="rounded-lg bg-slate-50 p-3">
-                                            <p className="mb-1 text-xs font-medium text-muted-foreground">Description</p>
+                                            <p className="mb-1 text-xs font-medium text-muted-foreground">{t('labels.description')}</p>
                                             <p className="font-semibold">{data.packageDetails.description}</p>
                                         </div>
                                     </div>
@@ -332,19 +334,19 @@ function TrackingContent() {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                             </svg>
                                         </div>
-                                        Sender
+                                        {t('labels.sender')}
                                     </h3>
                                     <div className="space-y-3">
                                         <div>
-                                            <p className="mb-1 text-xs font-medium text-blue-700">Name</p>
+                                            <p className="mb-1 text-xs font-medium text-blue-700">{t('labels.name')}</p>
                                             <p className="font-semibold text-blue-900">{data.sender.name}</p>
                                         </div>
                                         <div>
-                                            <p className="mb-1 text-xs font-medium text-blue-700">Address</p>
+                                            <p className="mb-1 text-xs font-medium text-blue-700">{t('labels.address')}</p>
                                             <p className="text-sm text-blue-800">{data.sender.address}</p>
                                         </div>
                                         <div>
-                                            <p className="mb-1 text-xs font-medium text-blue-700">Phone</p>
+                                            <p className="mb-1 text-xs font-medium text-blue-700">{t('labels.phone')}</p>
                                             <p className="text-sm text-blue-800">{data.sender.phone}</p>
                                         </div>
                                     </div>
@@ -358,19 +360,19 @@ function TrackingContent() {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                             </svg>
                                         </div>
-                                        Receiver
+                                        {t('labels.receiver')}
                                     </h3>
                                     <div className="space-y-3">
                                         <div>
-                                            <p className="mb-1 text-xs font-medium text-green-700">Name</p>
+                                            <p className="mb-1 text-xs font-medium text-green-700">{t('labels.name')}</p>
                                             <p className="font-semibold text-green-900">{data.receiver.name}</p>
                                         </div>
                                         <div>
-                                            <p className="mb-1 text-xs font-medium text-green-700">Address</p>
+                                            <p className="mb-1 text-xs font-medium text-green-700">{t('labels.address')}</p>
                                             <p className="text-sm text-green-800">{data.receiver.address}</p>
                                         </div>
                                         <div>
-                                            <p className="mb-1 text-xs font-medium text-green-700">Phone</p>
+                                            <p className="mb-1 text-xs font-medium text-green-700">{t('labels.phone')}</p>
                                             <p className="text-sm text-green-800">{data.receiver.phone}</p>
                                         </div>
                                     </div>

@@ -1,0 +1,91 @@
+{
+    "Navigation": {
+        "trackPackage": "Track Package",
+        "services": "Services",
+        "about": "About Us",
+        "contact": "Contact",
+        "adminLogin": "Admin Login"
+    },
+    "Hero": {
+        "badge": "FastRocket",
+        "titlePrefix": "Delivery at the speed of",
+        "subtitle": "Experience the fastest, most reliable delivery service. Track your packages in real-time and enjoy peace of mind with FastRocket.",
+        "trackPlaceholder": "Enter your tracking number...",
+        "trackButton": "Track Now",
+        "example": "e.g., FR-123456789",
+        "stats": {
+            "deliveries": "10M+ Deliveries",
+            "countries": "200+ Countries",
+            "onTime": "99.9% On-Time"
+        }
+    },
+    "Features": {
+        "title": "Why Choose FastRocket?",
+        "subtitle": "We deliver more than just packages; we deliver promises.",
+        "fast": {
+            "title": "Lightning Fast",
+            "description": "Same-day delivery options available for major cities. We value your time."
+        },
+        "global": {
+            "title": "Global Reach",
+            "description": "Shipping to over 200 countries worldwide with real-time tracking updates."
+        },
+        "secure": {
+            "title": "Secure Handling",
+            "description": "Your packages are handled with utmost care and insured against damage."
+        }
+    },
+    "Future": {
+        "title": "The Future of Delivery",
+        "subtitle": "Experience the next generation of logistics with FastRocket",
+        "drone": {
+            "title": "Future-Ready\nDrone Delivery",
+            "description": "Pioneering autonomous aerial delivery for instant urban logistics"
+        },
+        "electric": {
+            "title": "Eco-Friendly\nElectric Fleet",
+            "description": "Zero-emission last-mile delivery protecting our planet"
+        },
+        "plane": {
+            "title": "Speed That\nDefies Gravity",
+            "description": "Same-day delivery available - your urgent packages arrive before you know it"
+        }
+    },
+    "Tracking": {
+        "title": "Track Your Shipment",
+        "subtitle": "Enter your tracking number to get real-time updates on your package.",
+        "searchPlaceholder": "Enter tracking number (e.g., FR-123456789)",
+        "trackButton": "Track",
+        "tracking": "Tracking...",
+        "saveReceipt": "Save Receipt",
+        "saving": "Saving...",
+        "notFound": "Tracking number not found. Please check and try again.",
+        "error": "An error occurred while fetching tracking data.",
+        "status": {
+            "delivered": "Delivered",
+            "outForDelivery": "Out for Delivery",
+            "inTransit": "In Transit"
+        },
+        "labels": {
+            "trackingNumber": "Tracking Number",
+            "estimatedDelivery": "Estimated Delivery",
+            "serviceType": "Service Type",
+            "weight": "Weight",
+            "description": "Description",
+            "sender": "Sender",
+            "receiver": "Receiver",
+            "name": "Name",
+            "address": "Address",
+            "phone": "Phone",
+            "history": "Tracking History",
+            "packageDetails": "Package Details"
+        },
+        "steps": {
+            "ordered": "Ordered",
+            "processing": "Processing",
+            "shipped": "Shipped",
+            "outForDelivery": "Out for Delivery",
+            "delivered": "Delivered"
+        }
+    }
+}

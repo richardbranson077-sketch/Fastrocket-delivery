@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Rocket, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { TeamGallery } from '@/components/TeamGallery';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export function Footer() {
     return (
@@ -52,7 +53,7 @@ export function Footer() {
 
                     <div className="md:col-span-2 lg:col-span-1">
                         <h3 className="mb-4 text-sm font-semibold">Connect</h3>
-                        <div className="flex space-x-4">
+                        <div className="flex space-x-4 mb-6">
                             <Link href="#" className="text-muted-foreground hover:text-primary">
                                 <Facebook className="h-5 w-5" />
                                 <span className="sr-only">Facebook</span>
@@ -69,6 +70,10 @@ export function Footer() {
                                 <Linkedin className="h-5 w-5" />
                                 <span className="sr-only">LinkedIn</span>
                             </Link>
+                        </div>
+                        <div>
+                            <h3 className="mb-4 text-sm font-semibold">Language</h3>
+                            <LanguageSwitcher />
                         </div>
                     </div>
                 </div>

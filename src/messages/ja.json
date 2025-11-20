@@ -1,0 +1,91 @@
+{
+    "Navigation": {
+        "trackPackage": "荷物の追跡",
+        "services": "サービス",
+        "about": "会社概要",
+        "contact": "お問い合わせ",
+        "adminLogin": "管理者ログイン"
+    },
+    "Hero": {
+        "badge": "FastRocket",
+        "titlePrefix": "驚異的なスピードで配達",
+        "subtitle": "最速かつ最も信頼性の高い配送サービスを体験してください。リアルタイムで荷物を追跡できます。",
+        "trackPlaceholder": "追跡番号を入力...",
+        "trackButton": "今すぐ追跡",
+        "example": "例: FR-123456789",
+        "stats": {
+            "deliveries": "1000万+ 配達",
+            "countries": "200+ 国",
+            "onTime": "99.9% 定時"
+        }
+    },
+    "Features": {
+        "title": "FastRocketを選ぶ理由",
+        "subtitle": "私たちは荷物だけでなく、約束も届けます。",
+        "fast": {
+            "title": "電光石火の速さ",
+            "description": "主要都市では当日配送が可能です。"
+        },
+        "global": {
+            "title": "グローバルな展開",
+            "description": "世界200カ国以上に発送します。"
+        },
+        "secure": {
+            "title": "安全な取り扱い",
+            "description": "お客様の荷物は細心の注意を払って取り扱われます。"
+        }
+    },
+    "Future": {
+        "title": "配送の未来",
+        "subtitle": "次世代の物流を体験してください",
+        "drone": {
+            "title": "未来対応\nドローン配送",
+            "description": "先駆的な自律型空中配送"
+        },
+        "electric": {
+            "title": "環境に優しい\n電気自動車",
+            "description": "ゼロエミッションのラストワンマイル配送"
+        },
+        "plane": {
+            "title": "重力に逆らう\nスピード",
+            "description": "当日配送が利用可能です"
+        }
+    },
+    "Tracking": {
+        "title": "荷物の追跡",
+        "subtitle": "追跡番号を入力して、リアルタイムの更新情報を取得してください。",
+        "searchPlaceholder": "追跡番号を入力 (例: FR-123456789)",
+        "trackButton": "追跡",
+        "tracking": "追跡中...",
+        "saveReceipt": "領収書を保存",
+        "saving": "保存中...",
+        "notFound": "追跡番号が見つかりません。",
+        "error": "エラーが発生しました。",
+        "status": {
+            "delivered": "配達完了",
+            "outForDelivery": "配達中",
+            "inTransit": "輸送中"
+        },
+        "labels": {
+            "trackingNumber": "追跡番号",
+            "estimatedDelivery": "配達予定日",
+            "serviceType": "サービスタイプ",
+            "weight": "重量",
+            "description": "説明",
+            "sender": "差出人",
+            "receiver": "受取人",
+            "name": "名前",
+            "address": "住所",
+            "phone": "電話番号",
+            "history": "履歴",
+            "packageDetails": "荷物の詳細"
+        },
+        "steps": {
+            "ordered": "注文済み",
+            "processing": "処理中",
+            "shipped": "発送済み",
+            "outForDelivery": "配達中",
+            "delivered": "配達完了"
+        }
+    }
+}

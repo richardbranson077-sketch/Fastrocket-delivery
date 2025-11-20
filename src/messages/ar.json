@@ -1,0 +1,91 @@
+{
+    "Navigation": {
+        "trackPackage": "تتبع الطرد",
+        "services": "خدمات",
+        "about": "معلومات عنا",
+        "contact": "اتصل بنا",
+        "adminLogin": "دخول المسؤول"
+    },
+    "Hero": {
+        "badge": "FastRocket",
+        "titlePrefix": "التوصيل بسرعة",
+        "subtitle": "جرب خدمة التوصيل الأسرع والأكثر موثوقية. تتبع طرودك في الوقت الفعلي.",
+        "trackPlaceholder": "أدخل رقم التتبع الخاص بك...",
+        "trackButton": "تتبع الآن",
+        "example": "مثال: FR-123456789",
+        "stats": {
+            "deliveries": "10M+ توصيل",
+            "countries": "200+ دولة",
+            "onTime": "99.9% في الوقت المحدد"
+        }
+    },
+    "Features": {
+        "title": "لماذا تختار FastRocket؟",
+        "subtitle": "نحن نقدم أكثر من مجرد طرود؛ نحن نقدم وعودًا.",
+        "fast": {
+            "title": "سريع كالبرق",
+            "description": "تتوفر خيارات التوصيل في نفس اليوم للمدن الكبرى."
+        },
+        "global": {
+            "title": "انتشار عالمي",
+            "description": "الشحن إلى أكثر من 200 دولة حول العالم."
+        },
+        "secure": {
+            "title": "معالجة آمنة",
+            "description": "يتم التعامل مع طرودك بعناية فائقة."
+        }
+    },
+    "Future": {
+        "title": "مستقبل التوصيل",
+        "subtitle": "جرب الجيل القادم من الخدمات اللوجستية",
+        "drone": {
+            "title": "توصيل عبر الطائرات بدون طيار\nجاهز للمستقبل",
+            "description": "ريادة التوصيل الجوي المستقل"
+        },
+        "electric": {
+            "title": "أسطول كهربائي\nصديق للبيئة",
+            "description": "توصيل الميل الأخير بدون انبعاثات"
+        },
+        "plane": {
+            "title": "سرعة تتحدى\nالجاذبية",
+            "description": "يتوفر التوصيل في نفس اليوم"
+        }
+    },
+    "Tracking": {
+        "title": "تتبع شحنتك",
+        "subtitle": "أدخل رقم التتبع الخاص بك للحصول على تحديثات في الوقت الفعلي.",
+        "searchPlaceholder": "أدخل رقم التتبع (مثال: FR-123456789)",
+        "trackButton": "تتبع",
+        "tracking": "جاري التتبع...",
+        "saveReceipt": "حفظ الإيصال",
+        "saving": "جاري الحفظ...",
+        "notFound": "رقم التتبع غير موجود.",
+        "error": "حدث خطأ.",
+        "status": {
+            "delivered": "تم التوصيل",
+            "outForDelivery": "خارج للتوصيل",
+            "inTransit": "في الطريق"
+        },
+        "labels": {
+            "trackingNumber": "رقم التتبع",
+            "estimatedDelivery": "التسليم المقدر",
+            "serviceType": "نوع الخدمة",
+            "weight": "الوزن",
+            "description": "الوصف",
+            "sender": "المرسل",
+            "receiver": "المستلم",
+            "name": "الاسم",
+            "address": "العنوان",
+            "phone": "الهاتف",
+            "history": "التاريخ",
+            "packageDetails": "تفاصيل الطرد"
+        },
+        "steps": {
+            "ordered": "تم الطلب",
+            "processing": "جاري المعالجة",
+            "shipped": "تم الشحن",
+            "outForDelivery": "خارج للتوصيل",
+            "delivered": "تم التوصيل"
+        }
+    }
+}

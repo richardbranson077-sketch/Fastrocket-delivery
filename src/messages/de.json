@@ -1,0 +1,91 @@
+{
+    "Navigation": {
+        "trackPackage": "Paket verfolgen",
+        "services": "Dienstleistungen",
+        "about": "Über uns",
+        "contact": "Kontakt",
+        "adminLogin": "Admin Login"
+    },
+    "Hero": {
+        "badge": "FastRocket",
+        "titlePrefix": "Lieferung mit der Geschwindigkeit von",
+        "subtitle": "Erleben Sie den schnellsten und zuverlässigsten Lieferservice. Verfolgen Sie Ihre Pakete in Echtzeit.",
+        "trackPlaceholder": "Geben Sie Ihre Tracking-Nummer ein...",
+        "trackButton": "Jetzt verfolgen",
+        "example": "z.B. FR-123456789",
+        "stats": {
+            "deliveries": "10M+ Lieferungen",
+            "countries": "200+ Länder",
+            "onTime": "99.9% Pünktlich"
+        }
+    },
+    "Features": {
+        "title": "Warum FastRocket?",
+        "subtitle": "Wir liefern mehr als nur Pakete; wir liefern Versprechen.",
+        "fast": {
+            "title": "Blitzschnell",
+            "description": "Lieferung am selben Tag für Großstädte verfügbar."
+        },
+        "global": {
+            "title": "Globale Reichweite",
+            "description": "Versand in über 200 Länder weltweit."
+        },
+        "secure": {
+            "title": "Sichere Handhabung",
+            "description": "Ihre Pakete werden mit größter Sorgfalt behandelt."
+        }
+    },
+    "Future": {
+        "title": "Die Zukunft der Lieferung",
+        "subtitle": "Erleben Sie die nächste Generation der Logistik",
+        "drone": {
+            "title": "Zukunftsfähige\nDrohnenlieferung",
+            "description": "Pionierarbeit bei der autonomen Luftlieferung"
+        },
+        "electric": {
+            "title": "Umweltfreundliche\nElektroflotte",
+            "description": "Emissionsfreie Lieferung auf der letzten Meile"
+        },
+        "plane": {
+            "title": "Geschwindigkeit, die\nder Schwerkraft trotzt",
+            "description": "Lieferung am selben Tag verfügbar"
+        }
+    },
+    "Tracking": {
+        "title": "Verfolgen Sie Ihre Sendung",
+        "subtitle": "Geben Sie Ihre Tracking-Nummer ein, um Echtzeit-Updates zu erhalten.",
+        "searchPlaceholder": "Tracking-Nummer eingeben (z.B. FR-123456789)",
+        "trackButton": "Verfolgen",
+        "tracking": "Verfolgung...",
+        "saveReceipt": "Quittung speichern",
+        "saving": "Speichern...",
+        "notFound": "Tracking-Nummer nicht gefunden.",
+        "error": "Ein Fehler ist aufgetreten.",
+        "status": {
+            "delivered": "Geliefert",
+            "outForDelivery": "In Zustellung",
+            "inTransit": "Unterwegs"
+        },
+        "labels": {
+            "trackingNumber": "Tracking-Nummer",
+            "estimatedDelivery": "Geschätzte Lieferung",
+            "serviceType": "Serviceart",
+            "weight": "Gewicht",
+            "description": "Beschreibung",
+            "sender": "Absender",
+            "receiver": "Empfänger",
+            "name": "Name",
+            "address": "Adresse",
+            "phone": "Telefon",
+            "history": "Verlauf",
+            "packageDetails": "Paketdetails"
+        },
+        "steps": {
+            "ordered": "Bestellt",
+            "processing": "Verarbeitung",
+            "shipped": "Versandt",
+            "outForDelivery": "In Zustellung",
+            "delivered": "Geliefert"
+        }
+    }
+}

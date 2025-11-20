@@ -1,0 +1,91 @@
+{
+    "Navigation": {
+        "trackPackage": "追踪包裹",
+        "services": "服务",
+        "about": "关于我们",
+        "contact": "联系我们",
+        "adminLogin": "管理员登录"
+    },
+    "Hero": {
+        "badge": "FastRocket",
+        "titlePrefix": "以...的速度交付",
+        "subtitle": "体验最快、最可靠的送货服务。实时追踪您的包裹。",
+        "trackPlaceholder": "输入您的追踪号码...",
+        "trackButton": "立即追踪",
+        "example": "例如：FR-123456789",
+        "stats": {
+            "deliveries": "1000万+ 交付",
+            "countries": "200+ 国家",
+            "onTime": "99.9% 准时"
+        }
+    },
+    "Features": {
+        "title": "为什么选择 FastRocket？",
+        "subtitle": "我们不仅仅运送包裹；我们运送承诺。",
+        "fast": {
+            "title": "闪电般快速",
+            "description": "主要城市提供当日送达服务。"
+        },
+        "global": {
+            "title": "全球覆盖",
+            "description": "运送至全球200多个国家。"
+        },
+        "secure": {
+            "title": "安全处理",
+            "description": "您的包裹将得到最谨慎的处理。"
+        }
+    },
+    "Future": {
+        "title": "交付的未来",
+        "subtitle": "体验下一代物流",
+        "drone": {
+            "title": "面向未来的\n无人机交付",
+            "description": "开创性的自主空中交付"
+        },
+        "electric": {
+            "title": "环保\n电动车队",
+            "description": "零排放最后一英里交付"
+        },
+        "plane": {
+            "title": "挑战重力的\n速度",
+            "description": "提供当日送达服务"
+        }
+    },
+    "Tracking": {
+        "title": "追踪您的货物",
+        "subtitle": "输入您的追踪号码以获取实时更新。",
+        "searchPlaceholder": "输入追踪号码 (例如：FR-123456789)",
+        "trackButton": "追踪",
+        "tracking": "追踪中...",
+        "saveReceipt": "保存收据",
+        "saving": "保存中...",
+        "notFound": "未找到追踪号码。",
+        "error": "发生错误。",
+        "status": {
+            "delivered": "已送达",
+            "outForDelivery": "派送中",
+            "inTransit": "运输中"
+        },
+        "labels": {
+            "trackingNumber": "追踪号码",
+            "estimatedDelivery": "预计送达",
+            "serviceType": "服务类型",
+            "weight": "重量",
+            "description": "描述",
+            "sender": "发件人",
+            "receiver": "收件人",
+            "name": "姓名",
+            "address": "地址",
+            "phone": "电话",
+            "history": "历史记录",
+            "packageDetails": "包裹详情"
+        },
+        "steps": {
+            "ordered": "已下单",
+            "processing": "处理中",
+            "shipped": "已发货",
+            "outForDelivery": "派送中",
+            "delivered": "已送达"
+        }
+    }
+}
